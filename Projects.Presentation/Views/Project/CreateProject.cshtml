@@ -22,11 +22,15 @@
     $(document).ready(function() {
         $('#wizardContainer').on('submit', 'form', function(e) {
             e.preventDefault();
+            
+            var formData = new FormData(this);
 
             $.ajax({
                 url: this.action,
                 type: this.method,
-                data: $(this).serialize(),
+                data: formData,
+                processData: false,
+                contentType: false,
                 success: function(result) {
                     $('#wizardContainer').html(result);
                 }
