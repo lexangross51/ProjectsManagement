@@ -70,3 +70,4 @@ C:\Users\lexan\source\repos\ProjectsManagement\Projects.Presentation\obj\Debug\n
 C:\Users\lexan\source\repos\ProjectsManagement\Projects.Presentation\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\lexan\source\repos\ProjectsManagement\Projects.Presentation\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 C:\Users\lexan\source\repos\ProjectsManagement\Projects.Presentation\obj\Debug\net8.0\Projects.Presentation.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Presentation\obj\Debug\net8.0\Projects.Presentation.sourcelink.json

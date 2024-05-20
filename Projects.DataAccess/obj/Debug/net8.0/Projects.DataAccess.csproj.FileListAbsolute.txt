@@ -10,3 +10,4 @@ C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\obj\Debug\net
 C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\obj\Debug\net8.0\refint\Projects.DataAccess.dll
 C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\obj\Debug\net8.0\Projects.DataAccess.pdb
 C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\obj\Debug\net8.0\ref\Projects.DataAccess.dll
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\obj\Debug\net8.0\Projects.DataAccess.sourcelink.json

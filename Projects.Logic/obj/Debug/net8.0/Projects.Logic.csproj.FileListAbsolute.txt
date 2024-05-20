@@ -13,3 +13,4 @@ C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\obj\Debug\net8.0\P
 C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\obj\Debug\net8.0\refint\Projects.Logic.dll
 C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\obj\Debug\net8.0\Projects.Logic.pdb
 C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\obj\Debug\net8.0\ref\Projects.Logic.dll
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\obj\Debug\net8.0\Projects.Logic.sourcelink.json
