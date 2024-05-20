@@ -1,4 +1,5 @@
 ﻿using Projects.DataAccess.Models.Base;
+using Projects.DataAccess.Models.Tasks;
 
 namespace Projects.DataAccess.Models;
 
@@ -23,4 +24,6 @@ public class Project : IEntity
     public Employee? Manager { get; set; }
     
     public ICollection<Employee>? Executors { get; set; }
+    
+    public ICollection<ProjectTask>? Tasks { get; set; }
 }

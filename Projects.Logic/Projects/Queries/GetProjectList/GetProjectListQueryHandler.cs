@@ -10,6 +10,8 @@ public class GetProjectListQueryHandler(IProjectRepository repos) : IRequestHand
         var projects = await repos.GetAllAsync(cancellationToken);
         var listVm = new ProjectListVm();
 
+        if (projects == null) return listVm;
+
         foreach (var project in projects)
         {
             listVm.Projects.Add(new ProjectLookupDto

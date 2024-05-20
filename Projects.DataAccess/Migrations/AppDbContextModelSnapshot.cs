@@ -100,6 +100,47 @@ namespace Projects.DataAccess.Migrations
                     b.ToTable("Projects");
                 });
 
+            modelBuilder.Entity("Projects.DataAccess.Models.Tasks.ProjectTask", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("AuthorId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(512)
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid?>("ExecutorId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<uint>("Priority")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<Guid?>("ProjectId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("TaskName")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("ExecutorId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Tasks");
+                });
+
             modelBuilder.Entity("ProjectEmployee", b =>
                 {
                     b.HasOne("Projects.DataAccess.Models.Employee", null)
@@ -124,9 +165,39 @@ namespace Projects.DataAccess.Migrations
                     b.Navigation("Manager");
                 });
 
+            modelBuilder.Entity("Projects.DataAccess.Models.Tasks.ProjectTask", b =>
+                {
+                    b.HasOne("Projects.DataAccess.Models.Employee", "Author")
+                        .WithMany("CreatedTasks")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Projects.DataAccess.Models.Employee", "Executor")
+                        .WithMany("Tasks")
+                        .HasForeignKey("ExecutorId");
+
+                    b.HasOne("Projects.DataAccess.Models.Project", null)
+                        .WithMany("Tasks")
+                        .HasForeignKey("ProjectId");
+
+                    b.Navigation("Author");
+
+                    b.Navigation("Executor");
+                });
+
             modelBuilder.Entity("Projects.DataAccess.Models.Employee", b =>
                 {
+                    b.Navigation("CreatedTasks");
+
                     b.Navigation("ManagedProjects");
+
+                    b.Navigation("Tasks");
+                });
+
+            modelBuilder.Entity("Projects.DataAccess.Models.Project", b =>
+                {
+                    b.Navigation("Tasks");
                 });
 #pragma warning restore 612, 618
         }

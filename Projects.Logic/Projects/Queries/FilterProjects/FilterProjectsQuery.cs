@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Projects.Logic.Common.DataFiltration;
 using Projects.Logic.Projects.Queries.FilterProjects.Filters;
 using Projects.Logic.Projects.Queries.GetProjectList;
 

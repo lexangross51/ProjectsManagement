@@ -23,8 +23,12 @@ public class CreateProjectCommandHandler(IUnitOfWork reposManager) : IRequestHan
         if (request.ExecutorsId != null)
         {
             var employees = await reposManager.Employees.GetAllAsync(cancellationToken);
-            employees = employees.Where(e => request.ExecutorsId.Contains(e.Id));
-            project.Executors = await employees.ToListAsync(cancellationToken);
+            employees = employees?.Where(e => request.ExecutorsId.Contains(e.Id));
+            
+            if(employees != null)
+            {
+                project.Executors = await employees.ToListAsync(cancellationToken);
+            }
         }
 
         await reposManager.Projects.SaveAsync(project, cancellationToken);

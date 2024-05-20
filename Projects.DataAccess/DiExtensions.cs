@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Projects.DataAccess.Database;
 using Projects.DataAccess.Storage.EmployeesStorage;
 using Projects.DataAccess.Storage.ProjectsStorage;
+using Projects.DataAccess.Storage.TasksStorage;
 using Projects.DataAccess.Storage.UnitOfWork;
 
 namespace Projects.DataAccess;
@@ -13,10 +14,11 @@ public static class DiExtensions
         Action<DbContextOptionsBuilder> options)
     {
         services
+            .AddDbContext<AppDbContext>(options)
             .AddScoped<IEmployeeRepository, EmployeeRepository>()
             .AddScoped<IProjectRepository, ProjectRepository>()
-            .AddScoped<IUnitOfWork, ProjectsManager>()
-            .AddDbContext<AppDbContext>(options);
+            .AddScoped<ITaskRepository, TaskRepository>()
+            .AddScoped<IUnitOfWork, ProjectsManager>();
 
         return services;
     }

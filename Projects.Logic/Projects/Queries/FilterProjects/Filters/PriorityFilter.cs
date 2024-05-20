@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using Projects.Logic.Common.DataFiltration;
 using Projects.Logic.Projects.Queries.GetProjectList;
 
 namespace Projects.Logic.Projects.Queries.FilterProjects.Filters;

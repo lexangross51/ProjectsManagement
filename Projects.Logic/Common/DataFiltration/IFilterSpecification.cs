@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Projects.Logic.Projects.Queries.FilterProjects.Filters;
+namespace Projects.Logic.Common.DataFiltration;
 
 public interface IFilterSpecification<T>
 {
