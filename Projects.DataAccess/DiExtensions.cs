@@ -13,10 +13,10 @@ public static class DiExtensions
         Action<DbContextOptionsBuilder> options)
     {
         services
+            .AddDbContext<AppDbContext>(options)
             .AddScoped<IEmployeeRepository, EmployeeRepository>()
             .AddScoped<IProjectRepository, ProjectRepository>()
-            .AddScoped<IUnitOfWork, ProjectsManager>()
-            .AddDbContext<AppDbContext>(options);
+            .AddScoped<IUnitOfWork, ProjectsManager>();
 
         return services;
     }

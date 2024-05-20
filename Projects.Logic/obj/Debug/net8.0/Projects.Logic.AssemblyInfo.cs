@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Projects.Logic")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7dd185662e999115e44aa12509dd24d8cf9ec426")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+32a1c16712893905cff2d834dabe5f95c6a9a000")]
 [assembly: System.Reflection.AssemblyProductAttribute("Projects.Logic")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Projects.Logic")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
