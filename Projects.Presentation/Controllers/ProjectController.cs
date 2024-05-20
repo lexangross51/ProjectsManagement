@@ -202,6 +202,9 @@ public class ProjectController(IMediator mediator,
         {
             var query = new GetProjectQuery { Id = id };
             var project = await mediator.Send(query);
+            string executorsId = string.Join(',', project.Executors is { Count: > 0 }
+                ? project.Executors?.Select(e => e.Id)
+                : string.Empty);
 
             return View(new UpdateProjectDto
             {
@@ -215,9 +218,7 @@ public class ProjectController(IMediator mediator,
                 ManagerId = project.ManagerId,
                 Manager = project.Manager,
                 Executors = project.Executors,
-                ExecutorsId = string.Join(',', project.Executors != null 
-                    ? project.Executors?.Select(e => e.Id) 
-                    : string.Empty)
+                ExecutorsId = executorsId
             });
         }
         catch (Exception ex)

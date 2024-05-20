@@ -26,7 +26,7 @@ public class UpdateProjectDto
     public Guid? ManagerId { get; init; }
 
     public Employee? Manager { get; init; }
-    
+
     public string? ExecutorsId { get; init; }
     
     public ICollection<Employee>? Executors { get; init; }
