@@ -13,9 +13,14 @@ using Projects.Presentation.Models.Projects;
 
 namespace Projects.Presentation.Controllers;
 
-public class ProjectController(IMediator mediator, 
-    IMemoryCache cache, ILogger<ProjectController> logger) : Controller
+public class ProjectController(IMediator mediator, IMemoryCache cache, 
+    ILogger<ProjectController> logger) : Controller
 {
+    // mediator - is used to send requests to their handlers
+    // cache - is used to avoid making unnecessary queries to the database
+    //         (for example, when we just want to sort the collection or
+    //          for storing data from different steps of the wizard)
+
     [HttpGet]
     public async Task<IActionResult> Projects(ProjectsViewModel projectsVm)
     {
@@ -156,9 +161,8 @@ public class ProjectController(IMediator mediator,
                     if (file.Length == 0) continue;
 
                     Directory.CreateDirectory($"uploads/{newProjectId}");
-                    
-                    await using var stream =
-                        new FileStream("uploads/" + newProjectId + "/" + file.FileName, FileMode.Create);
+
+                    await using var stream = new FileStream($"uploads/{newProjectId}/{file.FileName}", FileMode.Create);
                     await file.CopyToAsync(stream);
                 }
             }
@@ -202,6 +206,8 @@ public class ProjectController(IMediator mediator,
         {
             var query = new GetProjectQuery { Id = id };
             var project = await mediator.Send(query);
+
+            // Create a string with all id of executors to easily edit them through a hidden input field on the form
             string executorsId = string.Join(',', project.Executors is { Count: > 0 }
                 ? project.Executors?.Select(e => e.Id)
                 : string.Empty);
