@@ -1,0 +1,49 @@
+﻿@model Projects.Logic.Projects.Queries.GetProject.ProjectDetailsVm
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Project details</title>
+</head>
+<body>
+    <h1>@Model.ProjectName</h1>
+
+    <p><strong>Company customer: </strong> @Model.CompanyCustomer</p>
+    <p><strong>Company executor: </strong> @Model.CompanyExecutor</p>
+    <p><strong>Priority: </strong> @Model.Priority</p>
+    <p><strong>Date start: </strong> @Model.DateStart</p>
+    <p><strong>Date end: </strong> @Model.DateEnd</p>
+
+    @if (Model.Manager != null)
+    {
+        <p><strong>Manager: </strong> @Model.Manager.FullName</p>
+    }
+
+    @if (Model.Executors != null && Model.Executors.Any())
+    {
+        <p><strong>Executors:</strong></p>
+
+        <ul>
+            @foreach (var e in Model.Executors)
+            {
+                <li>@e.FullName</li>
+            }
+        </ul>
+    }
+
+    <button type="button" onclick="location.href='@Url.Action("Projects", "Project")'">Project list</button>
+
+    @using (Html.BeginForm("DeleteProject", "Project", new { id = Model.Id }, FormMethod.Post))
+    {
+        <button type="submit" onclick="return confirm('Are you sure you want to delete this project?')">Delete</button>
+    }
+
+    <button type="button" onclick="location.href='@Url.Action("UpdateProject", "Project", new {id = Model.Id})'">Edit</button>
+
+</body>
+</html>

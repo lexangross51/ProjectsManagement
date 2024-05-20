@@ -1,0 +1,12 @@
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\bin\Debug\net8.0\Projects.DataAccess.deps.json
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\bin\Debug\net8.0\Projects.DataAccess.dll
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\bin\Debug\net8.0\Projects.DataAccess.pdb
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\obj\Debug\net8.0\Projects.DataAccess.csproj.AssemblyReference.cache
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\obj\Debug\net8.0\Projects.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\obj\Debug\net8.0\Projects.DataAccess.AssemblyInfoInputs.cache
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\obj\Debug\net8.0\Projects.DataAccess.AssemblyInfo.cs
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\obj\Debug\net8.0\Projects.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\obj\Debug\net8.0\Projects.DataAccess.dll
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\obj\Debug\net8.0\refint\Projects.DataAccess.dll
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\obj\Debug\net8.0\Projects.DataAccess.pdb
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.DataAccess\obj\Debug\net8.0\ref\Projects.DataAccess.dll

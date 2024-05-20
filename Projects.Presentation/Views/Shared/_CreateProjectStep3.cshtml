@@ -1,0 +1,40 @@
+﻿@model Projects.Presentation.Models.Projects.CreateProjectStep3Dto
+
+<form asp-action="CreateProjectStep3" asp-controller="Project" method="post">
+    @Html.AntiForgeryToken()
+    <div>
+        <label>Manager: </label>
+        <input type="text" id="managerName"/>
+        <input type="hidden" id="managerId" asp-for="ManagerId"/>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#managerName').autocomplete({
+                    source: function (request, response){
+                        $.ajax({
+                            url: '/Project/Employees/',
+                            type: 'GET',
+                            data: { term: request.term },
+                            success: function (data){
+                                response($.map(data,  function (item) {
+                                    return {label: item.value, value: item.id}
+                                }))
+                            }
+                        });
+                    },
+                    select: function (event, ui) {
+                        $('#managerName').val(ui.item.label);
+                        $('#managerId').val(ui.item.value);
+                        return false;
+                    }
+                }).on('mousedown', function () {
+                    $(this).autocomplete("search", " ");
+                });
+            });
+        </script>
+    </div>
+
+    <div>
+        <input type="submit" value="Next"/>
+    </div>
+</form>

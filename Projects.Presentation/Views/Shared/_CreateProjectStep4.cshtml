@@ -1,0 +1,57 @@
+﻿@model Projects.Presentation.Models.Projects.CreateProjectStep4Dto
+
+<form asp-action="CreateProjectStep4" asp-controller="Project" method="post">
+    @Html.AntiForgeryToken()    
+    <div>
+        <label>Executors: </label>
+        <input type="text" id="executorsNames"/>
+        <input type="hidden" id="executorsId" asp-for="ExecutorsId"/>
+        <ul id="selectedExecutors"></ul>
+
+        <script type="text/javascript">
+                $(document).ready(function () {
+                    const selectedExecutors = $('#selectedExecutors');
+    
+                    $('#executorsNames').autocomplete({
+                        source: function (request, response){
+                            $.ajax({
+                                url: '/Project/Employees/',
+                                type: 'GET',
+                                data: {term: request.term},
+                                success: function (data){
+                                    response($.map(data,  function (item) {
+                                        return {label: item.value, value: item.id}
+                                    }))
+                                }
+                            });
+                        },
+                        select: function (event, ui) {
+                            selectedExecutors.append('<li data-id="' + ui.item.value + '">' + ui.item.label + ' <button class="remove"> X </button></li>');
+                            updateSelectedExecutorsList();
+                            return false;
+                        }
+                    }).on('mousedown', function () {
+                        $(this).autocomplete("search", " ");
+                    })
+    
+                    selectedExecutors.on("click", ".remove", function (){
+                        $(this).parent().remove();
+                        updateSelectedExecutorsList();
+                    })
+    
+                    function updateSelectedExecutorsList(){
+                        const selectedExecutors = $("#selectedExecutors li").map(function () {
+                            return $(this).data('id');
+                        }).get().join(",");
+    
+                        $('#executorsId').val(selectedExecutors);
+                    }
+    
+                })
+            </script>
+    </div>
+
+    <div>
+        <input type="submit" value="Next"/>
+    </div>
+</form>

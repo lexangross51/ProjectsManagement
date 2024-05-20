@@ -1,0 +1,33 @@
+﻿@model Projects.Presentation.Models.Projects.ProjectsViewModel
+
+@if (Model.ProjectsList.Projects.Any())
+{
+    <table>
+        <tr>
+            <th>
+                <a href="#" onclick="sort('ProjectName')">Project name</a>
+            </th>
+            <th>
+                <a href="#" onclick="sort('Priority')">Priority</a>
+            </th>
+            <th>
+                <a href="#" onclick="sort('DateStart')">Date start</a>
+            </th>
+            <th>
+                <a href="#" onclick="sort('DateEnd')">Date end</a>
+            </th>
+        </tr>
+    
+        @foreach (var p in Model.ProjectsList.Projects)
+        {
+            <tr>
+                <td>
+                    <a asp-action="ProjectDetails" asp-controller="Project" asp-route-id="@p.Id">@p.ProjectName</a>
+                </td>
+                <td>@p.Priority</td>
+                <td>@p.DateStart</td>
+                <td>@p.DateEnd</td>
+            </tr>
+        }
+    </table>
+}

@@ -1,0 +1,27 @@
+﻿@model Projects.Logic.Employees.Queries.GetEmployeeList.EmployeeListVm
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Employees</title>
+</head>
+<body>
+<p>Employees</p>
+<ul>
+    @foreach (var e in Model.Employees)
+    {
+        <li>
+            <a asp-action="EmployeeDetails" asp-controller="Employee" asp-route-id="@e.Id">@e.FullName</a>
+        </li>
+    }
+</ul>
+
+<button type="button" onclick="location.href='@Url.Action("Index", "Home")'">Main page</button>
+<button type="button" onclick="location.href='@Url.Action("CreateEmployee", "Employee")'">Add</button>
+</body>
+</html>

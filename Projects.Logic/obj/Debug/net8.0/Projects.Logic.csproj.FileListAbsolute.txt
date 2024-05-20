@@ -1,0 +1,15 @@
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\bin\Debug\net8.0\Projects.Logic.deps.json
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\bin\Debug\net8.0\Projects.Logic.dll
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\bin\Debug\net8.0\Projects.Logic.pdb
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\bin\Debug\net8.0\Projects.DataAccess.dll
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\bin\Debug\net8.0\Projects.DataAccess.pdb
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\obj\Debug\net8.0\Projects.Logic.csproj.AssemblyReference.cache
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\obj\Debug\net8.0\Projects.Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\obj\Debug\net8.0\Projects.Logic.AssemblyInfoInputs.cache
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\obj\Debug\net8.0\Projects.Logic.AssemblyInfo.cs
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\obj\Debug\net8.0\Projects.Logic.csproj.CoreCompileInputs.cache
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\obj\Debug\net8.0\Projects.3CB093C7.Up2Date
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\obj\Debug\net8.0\Projects.Logic.dll
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\obj\Debug\net8.0\refint\Projects.Logic.dll
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\obj\Debug\net8.0\Projects.Logic.pdb
+C:\Users\lexan\source\repos\ProjectsManagement\Projects.Logic\obj\Debug\net8.0\ref\Projects.Logic.dll

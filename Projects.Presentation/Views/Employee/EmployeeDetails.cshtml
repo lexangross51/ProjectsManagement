@@ -1,0 +1,62 @@
+﻿@model Projects.Logic.Employees.Queries.GetEmployee.EmployeeDetailsVm
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Employee details</title>
+</head>
+<body>
+<h2>Information</h2>
+<p>
+    <strong>First name: </strong>@Model.FirstName
+</p>
+<p>
+    <strong>Middle name: </strong>@Model.MiddleName
+</p>
+<p>
+    <strong>Last name: </strong>@Model.LastName
+</p>
+
+<p>
+    <strong>Mail: </strong>@Model.Mail
+</p>
+
+@if (Model.Projects != null && Model.Projects.Any())
+{
+    <h2>Projects</h2>
+
+    <ul>
+        @foreach (var p in Model.Projects)
+        {
+            <li>@p.ProjectName</li>
+        }
+    </ul>
+}
+
+@if (Model.ManagedProjects != null && Model.ManagedProjects.Any())
+{
+    <h2>Managed projects</h2>
+
+    <ul>
+        @foreach (var p in Model.ManagedProjects)
+        {
+            <li>@p.ProjectName</li>
+        }
+    </ul>
+}
+
+<button type="button" onclick="location.href='@Url.Action("Employees", "Employee")'">Employee list</button>
+@using (Html.BeginForm("DeleteEmployee", "Employee", new { id = Model.Id }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <button type="submit" onclick="return confirm('Are you sure you want to delete this employee?')">Delete</button>
+}
+<button type="button" onclick="location.href='@Url.Action("UpdateEmployee", "Employee", new {id = Model.Id})'">Edit</button>
+
+</body>
+</html>

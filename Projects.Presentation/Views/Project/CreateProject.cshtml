@@ -1,0 +1,38 @@
+﻿@model Projects.Presentation.Models.Projects.CreateProjectStep1Dto
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Create project</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/jquery-ui.min.js"></script>
+</head>
+<body>
+<div id="wizardContainer">
+    @await Html.PartialAsync("_CreateProjectStep1", Model)
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#wizardContainer').on('submit', 'form', function(e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: this.action,
+                type: this.method,
+                data: $(this).serialize(),
+                success: function(result) {
+                    $('#wizardContainer').html(result);
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

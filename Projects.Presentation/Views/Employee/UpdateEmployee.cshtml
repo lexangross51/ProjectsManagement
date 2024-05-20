@@ -1,0 +1,42 @@
+﻿@model Projects.Presentation.Models.Employees.UpdateEmployeeDto
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Update employee</title>
+</head>
+<body>
+<form asp-controller="Employee" asp-action="UpdateEmployee" method="post">
+    @Html.AntiForgeryToken()
+    <div>
+        <label>First name</label>
+        <input asp-for="FirstName"/>
+        <span asp-validation-for="FirstName"></span>
+    </div>
+    <div>
+        <label>Middle name</label>
+        <input asp-for="MiddleName"/>
+        <span asp-validation-for="MiddleName"></span>
+    </div>
+    <div>
+        <label>Last name</label>
+        <input asp-for="LastName"/>
+        <span asp-validation-for="LastName"></span>
+    </div>
+    <div>
+        <label>Mail</label>
+        <input asp-for="Mail"/>
+        <span asp-validation-for="Mail"></span>
+    </div>
+
+    <div>
+        <input type="submit" value="Update"/>
+    </div>
+</form>
+</body>
+</html>

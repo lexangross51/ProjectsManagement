@@ -1,0 +1,19 @@
+﻿@model Projects.Presentation.Models.Projects.CreateProjectStep2Dto
+
+<form asp-action="CreateProjectStep2" asp-controller="Project" method="post">
+    @Html.AntiForgeryToken()
+    <div>
+        <label asp-for="CompanyCustomer">Customer company: </label>
+        <input asp-for="CompanyCustomer"/>
+        <span asp-validation-for="CompanyCustomer"></span>
+    </div>
+    <div>
+        <label asp-for="CompanyExecutor">Executor company: </label>
+        <input asp-for="CompanyExecutor"/>
+        <span asp-validation-for="CompanyExecutor"></span>
+    </div>
+
+    <div>
+        <input type="submit" value="Next"/>
+    </div>
+</form>
