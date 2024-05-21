@@ -24,5 +24,5 @@ public class UpdateProjectCommand : IRequest
     
     public IEnumerable<Guid>? ExecutorsId { get; init; }
 
-    public IEnumerable<Guid>? TasksId { get; init; }
+    // public IEnumerable<Guid>? TasksId { get; init; }
 }

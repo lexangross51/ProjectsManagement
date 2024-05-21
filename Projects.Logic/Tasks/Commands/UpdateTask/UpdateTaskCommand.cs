@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Projects.DataAccess.Models;
 using TaskStatus = Projects.DataAccess.Models.Tasks.TaskStatus;
 
 namespace Projects.Logic.Tasks.Commands.UpdateTask;
@@ -17,6 +16,4 @@ public class UpdateTaskCommand : IRequest
     public TaskStatus Status { get; init; }
 
     public Guid? ExecutorId { get; init; }
-
-    public Employee? Executor { get; init; }
 }

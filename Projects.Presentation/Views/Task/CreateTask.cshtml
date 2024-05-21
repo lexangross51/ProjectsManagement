@@ -1,0 +1,109 @@
+﻿@model Projects.Presentation.Models.Tasks.CreateTaskDto
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Add new task</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/jquery-ui.min.js"></script>
+</head>
+<body>
+<form asp-controller="Task" asp-action="CreateTask" method="post">
+    @Html.AntiForgeryToken()
+    <div>
+        <label asp-for="TaskName">Task name: </label>
+        <input asp-for="TaskName"/>
+        <span asp-validation-for="TaskName"></span>
+    </div>
+    <div>
+        <label asp-for="Priority">Priority: </label>
+        <input asp-for="Priority"/>
+        <span asp-validation-for="Priority"></span>
+    </div>
+    <div>
+        <label asp-for="Description">Description: </label>
+        <input asp-for="Description" />
+        <span asp-validation-for="Description"></span>
+    </div>
+    <div>
+        <label>Author: </label>
+        <input type="text" id="authorName" />
+        <input id="authorId" type="hidden" asp-for="AuthorId"/>
+        <span asp-validation-for="AuthorId"></span>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#authorName').autocomplete({
+                        source: function (request, response) {
+                            $.ajax({
+                                url: '/Employee/EmployeesJson',
+                                type: 'GET',
+                                data: { term: request.term },
+                                success: function (data) {
+                                    response($.map(data, function (item) {
+                                        return { label: item.value, value: item.id }
+                                    }))
+                                }
+                            });
+                        },
+                        select: function (event, ui) {
+                            $('#authorName').val(ui.item.label);
+                            $('#authorId').val(ui.item.value);
+                            return false;
+                        }
+                    }).on('mousedown', function () {
+                        $(this).autocomplete("search", " ");
+                    });
+                });
+            </script>
+    </div>
+    
+    <div>
+        <label>Executor: </label>
+        <input id="executorName"/>
+        <input id="executorId" type="hidden" asp-for="ExecutorId"/>
+        <span asp-validation-for="ExecutorId"></span>
+
+        <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#executorName').autocomplete({
+                        source: function (request, response) {
+                            $.ajax({
+                                url: '/Employee/EmployeesJson',
+                                type: 'GET',
+                                data: { term: request.term },
+                                success: function (data) {
+                                    response($.map(data, function (item) {
+                                        return { label: item.value, value: item.id }
+                                    }))
+                                }
+                            });
+                        },
+                        select: function (event, ui) {
+                            $('#executorName').val(ui.item.label);
+                            $('#executorId').val(ui.item.value);
+                            return false;
+                        }
+                    }).on('mousedown', function () {
+                        $(this).autocomplete("search", " ");
+                    });
+                });
+            </script>
+    </div>
+
+    <div>
+        <input type="hidden" asp-for="ProjectId" value="@Model.ProjectId"/>
+    </div>
+    
+    <div>
+        <input type="submit" value="Create"/>
+    </div>
+</form>
+</body>
+</html>

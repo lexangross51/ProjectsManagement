@@ -32,16 +32,16 @@ public class UpdateProjectCommandHandler(IUnitOfWork reposManager) : IRequestHan
             }
         }
 
-        if (request.TasksId != null)
-        {
-            var tasks = await reposManager.Tasks.GetAllAsync(cancellationToken);
-            tasks = tasks?.Where(e => request.TasksId.Contains(e.Id));
-
-            if (tasks != null)
-            {
-                project.Tasks = await tasks.ToListAsync(cancellationToken);
-            }
-        }
+        // if (request.TasksId != null)
+        // {
+        //     var tasks = await reposManager.Tasks.GetAllAsync(cancellationToken);
+        //     tasks = tasks?.Where(e => request.TasksId.Contains(e.Id));
+        //
+        //     if (tasks != null)
+        //     {
+        //         project.Tasks = await tasks.ToListAsync(cancellationToken);
+        //     }
+        // }
 
         await reposManager.Projects.UpdateAsync(project, cancellationToken);
         await reposManager.CommitChangesAsync(cancellationToken);

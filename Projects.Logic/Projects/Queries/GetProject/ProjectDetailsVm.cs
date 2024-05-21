@@ -25,5 +25,5 @@ public class ProjectDetailsVm
     
     public ICollection<Employee>? Executors { get; init; }
 
-    public ICollection<ProjectTask>? Tasks { get; init; }
+    public ICollection<ProjectTask> Tasks { get; init; } = [];
 }

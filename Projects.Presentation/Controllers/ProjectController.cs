@@ -207,9 +207,9 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
             var project = await mediator.Send(query);
 
             // Create a string with all id of executors to easily edit them through a hidden input field on the form
-            string executorsId = string.Join(',', project.Executors is { Count: > 0 }
-                ? project.Executors?.Select(e => e.Id)
-                : string.Empty);
+            string executorsId = project.Executors is { Count: > 0 } 
+                ? string.Join(',', project.Executors.Select(e => e.Id)) 
+                : string.Empty;
 
             return View(new UpdateProjectDto
             {
@@ -243,6 +243,10 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
 
         try
         {
+            var executorsId = !string.IsNullOrEmpty(dto.ExecutorsId)
+                ? dto.ExecutorsId?.Split(',').Select(Guid.Parse)
+                : new List<Guid>();
+            
             var command = new UpdateProjectCommand
             {
                 Id = dto.Id,
@@ -253,7 +257,7 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
                 ManagerId = dto.ManagerId,
                 CompanyCustomer = dto.CompanyCustomer,
                 CompanyExecutor = dto.CompanyExecutor,
-                ExecutorsId = dto.ExecutorsId?.Split(',').Select(Guid.Parse)
+                ExecutorsId = executorsId
             };
 
             await mediator.Send(command);
@@ -262,7 +266,7 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
         }
         catch (Exception ex)
         {
-            logger.LogError(message: "Error while receiving project information", exception: ex);
+            logger.LogError(message: "Error while updating project information", exception: ex);
             return NoContent();
         }
     }

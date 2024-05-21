@@ -5,6 +5,8 @@ namespace Projects.Logic.Tasks.Queries.GetTaskList;
 public class TaskLookupDto
 {
     public Guid Id { get; init; }
+    
+    public Guid ProjectId { get; init; }
 
     public string TaskName { get; init; } = string.Empty;
 

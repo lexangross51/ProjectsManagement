@@ -16,7 +16,7 @@ public class UpdateTaskCommandHandler(ITaskRepository repos) : IRequestHandler<U
         task.Priority = request.Priority;
         task.Status = request.Status;
         task.Description = request.Description;
-        task.ExecutorId = task.ExecutorId;
+        task.ExecutorId = request.ExecutorId;
 
         await repos.UpdateAsync(task, cancellationToken);
     }

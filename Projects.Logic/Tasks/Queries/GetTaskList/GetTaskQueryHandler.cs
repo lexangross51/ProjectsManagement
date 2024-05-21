@@ -17,6 +17,7 @@ public class GetTaskQueryHandler(ITaskRepository repos) : IRequestHandler<GetTas
             taskListVm.Tasks.Add(new TaskLookupDto
             {
                 Id = task.Id,
+                ProjectId = task.ProjectId,
                 TaskName = task.TaskName,
                 Priority = task.Priority,
                 Status = task.Status

@@ -1,0 +1,103 @@
+@using TaskStatus = Projects.DataAccess.Models.Tasks.TaskStatus
+@model Projects.Presentation.Models.Tasks.TasksViewModel
+
+@{
+Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Tasks</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/jquery-ui.min.js"></script>
+</head>
+<body>
+
+<h3>Filters</h3>
+
+<form id="filterForm">
+    <div class="block">
+        <label>Priority </label>
+        <input asp-for="PriorityFilter.PriorityFrom" class="form-control width50px" />
+        <span asp-validation-for="PriorityFilter.PriorityFrom"></span>
+
+        <label> - </label>
+        <input asp-for="PriorityFilter.PriorityTo" class="form-control width50px" />
+        <span asp-validation-for="PriorityFilter.PriorityTo"></span>
+    </div>
+
+    <div class="block">
+        <label>Status </label>
+        <select asp-for="StatusFilter.Status" class="form-control width50px" 
+                asp-items="Html.GetEnumSelectList(typeof(TaskStatus))"></select>
+        <span asp-validation-for="StatusFilter.Status"></span>
+    </div>
+
+    <input type="hidden" asp-for="ProjectId" value="@Model.ProjectId"/>
+    <input type="hidden" asp-for="ShowDeleteAndAddButtons" value="@Model.ShowDeleteAndAddButtons"/>
+    <input type="hidden" id="sortBy" value="" asp-for="SortBy" />
+    <input type="hidden" id="sortOrder" value="asc" asp-for="SortOrder" />
+
+    <div>
+        <button type="submit" class="base-button">Apply</button>
+    </div>
+</form>
+
+<div id="tasksTable" class="block">
+    @if (Model.ShowDeleteAndAddButtons)
+    {
+        @(await Html.PartialAsync("_TaskTableWithDelete", Model))
+    }
+    else
+    {
+        @(await Html.PartialAsync("_TaskTable", Model))
+    }
+</div>
+
+@if (Model.ShowDeleteAndAddButtons)
+{
+    <button type="button" class="base-button" onclick="location.href='@Url.Action("CreateTask", "Task", 
+        new { projectId = Model.ProjectId })'">Add new</button>   
+}
+else
+{
+    <button type="button" class="base-button" onclick="location.href='@Url.Action("Index", "Home")'">
+        Main page
+    </button>
+}
+
+<script>
+    $(document).ready(function () {
+        $("#filterForm").submit(function (e) {
+            e.preventDefault();
+
+            $.get('/Task/Tasks', $(this).serialize(), function (data) {
+                $('#tasksTable').html(data);
+            });
+        });
+
+        window.sort = function (sortBy) {
+            const sortBySelector = $('#sortBy');
+            const sortOrderSelector = $('#sortOrder');
+            const currentSortBy = sortBySelector.val();
+            let sortOrder = sortOrderSelector.val();
+
+            if (currentSortBy === sortBy) {
+                sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+            }
+            else {
+                sortOrder = 'asc';
+            }
+
+            sortBySelector.val(sortBy);
+            sortOrderSelector.val(sortOrder);
+
+            $('#filterForm').submit();
+        };
+    });
+</script>
+</body>
+</html>
