@@ -10,7 +10,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e857d069-5a3d-41ef-a638-a8bb98906db5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/shelf/Uncommitted_changes_before_Update_at_20_05_2024_23_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/shelf/Uncommitted_changes_before_Update_at_20_05_2024_23_32__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.DataAccess/Database/EntityConfigurations/TaskConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.DataAccess/Database/EntityConfigurations/TaskConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.DataAccess/Models/Tasks/ProjectTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.DataAccess/Models/Tasks/ProjectTask.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Logic/Tasks/Commands/CreateTask/CreateTaskCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Tasks/Commands/CreateTask/CreateTaskCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Logic/Tasks/Commands/CreateTask/CreateTaskCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Tasks/Commands/CreateTask/CreateTaskCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Controllers/EmployeeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/EmployeeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Controllers/ProjectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/ProjectController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Models/Employees/CreateEmployeeDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Models/Employees/CreateEmployeeDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Models/Projects/CreateProjectDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Models/Projects/CreateProjectDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Projects.Presentation.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Projects.Presentation.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Projects.Presentation.csproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Projects.Presentation.csproj.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-shm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-wal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep3.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep3.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep4.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep4.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,28 +90,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.Projects.Presentation: IIS Express.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Launch Settings Profile.Projects.Presentation: http.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev-tasks&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.Projects.Presentation: IIS Express.executor": "Debug",
+    ".NET Launch Settings Profile.Projects.Presentation: http.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dev-tasks",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\lexan\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\lexan\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\lexan\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\gross.2019\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\gross.2019\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\gross.2019\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Projects.Presentation: http">
     <configuration name="Projects.Presentation: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Projects.Presentation/Projects.Presentation.csproj" />
@@ -161,6 +179,7 @@
       <workItem from="1716171293848" duration="739000" />
       <workItem from="1716210661967" duration="10828000" />
       <workItem from="1716222560267" duration="289000" />
+      <workItem from="1716273279945" duration="1328000" />
     </task>
     <task id="LOCAL-00001" summary="The almost-complete first assignment">
       <option name="closed" value="true" />

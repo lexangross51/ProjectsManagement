@@ -14,7 +14,8 @@ public class CreateTaskCommandHandler(ITaskRepository repos) : IRequestHandler<C
             AuthorId = request.AuthorId,
             Priority = request.Priority,
             Description = request.Description,
-            ExecutorId = request.ExecutorId
+            ExecutorId = request.ExecutorId,
+            ProjectId = request.ProjectId
         };
 
         await repos.SaveAsync(task, cancellationToken);

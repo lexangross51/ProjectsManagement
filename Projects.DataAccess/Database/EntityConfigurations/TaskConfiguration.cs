@@ -17,5 +17,8 @@ public class TaskConfiguration : IEntityTypeConfiguration<ProjectTask>
         builder.HasOne(t => t.Executor)
             .WithMany(e => e.Tasks)
             .HasForeignKey(t => t.ExecutorId);
+        builder.HasOne(t => t.Project)
+            .WithMany(p => p.Tasks)
+            .HasForeignKey(t => t.ProjectId);
     }
 }

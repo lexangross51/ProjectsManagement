@@ -10,7 +10,7 @@ public class UpdateTaskCommand : IRequest
 
     public string TaskName { get; init; } = string.Empty;
 
-    public uint Priority { get; set; }
+    public uint Priority { get; init; }
 
     public string? Description { get; init; }
 

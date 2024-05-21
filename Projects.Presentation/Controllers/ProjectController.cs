@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
-using Projects.Logic.Employees.Queries.GetEmployeeList;
 using Projects.Logic.Projects.Commands.CreateProject;
 using Projects.Logic.Projects.Commands.DeleteProject;
 using Projects.Logic.Projects.Commands.UpdateProject;
@@ -194,7 +193,7 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
         }
         catch (Exception ex)
         {
-            logger.LogError(message: "Error while deleting an employee", exception: ex);
+            logger.LogError(message: "Error while deleting a project", exception: ex);
             return NotFound();
         }
     }
@@ -266,20 +265,5 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
             logger.LogError(message: "Error while receiving project information", exception: ex);
             return NoContent();
         }
-    }
-    
-    [HttpGet]
-    public async Task<IActionResult> Employees(string term)
-    {
-        var query = new GetEmployeeListQuery();
-        var listVm = await mediator.Send(query);
-
-        if (string.IsNullOrEmpty(term))
-            return Json(listVm.Employees
-                .Select(e => new { id = e.Id, value = e.FullName }));
-
-        return Json(listVm.Employees
-            .Where(e => e.FullName.Contains(term, StringComparison.OrdinalIgnoreCase))
-            .Select(e => new { id = e.Id, value = e.FullName }));
     }
 }

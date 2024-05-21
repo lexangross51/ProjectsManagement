@@ -21,4 +21,8 @@ public class ProjectTask : IEntity
     public Guid? ExecutorId { get; set; }
 
     public Employee? Executor { get; set; }
+
+    public Guid ProjectId { get; init; }
+
+    public Project Project { get; init; } = default!;
 }

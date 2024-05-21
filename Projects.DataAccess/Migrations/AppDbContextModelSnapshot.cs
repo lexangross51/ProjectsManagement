@@ -119,7 +119,7 @@ namespace Projects.DataAccess.Migrations
                     b.Property<uint>("Priority")
                         .HasColumnType("INTEGER");
 
-                    b.Property<Guid?>("ProjectId")
+                    b.Property<Guid>("ProjectId")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Status")
@@ -177,13 +177,17 @@ namespace Projects.DataAccess.Migrations
                         .WithMany("Tasks")
                         .HasForeignKey("ExecutorId");
 
-                    b.HasOne("Projects.DataAccess.Models.Project", null)
+                    b.HasOne("Projects.DataAccess.Models.Project", "Project")
                         .WithMany("Tasks")
-                        .HasForeignKey("ProjectId");
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Author");
 
                     b.Navigation("Executor");
+
+                    b.Navigation("Project");
                 });
 
             modelBuilder.Entity("Projects.DataAccess.Models.Employee", b =>

@@ -13,4 +13,6 @@ public class CreateTaskCommand : IRequest<Guid>
     public Guid AuthorId { get; init; }
 
     public Guid? ExecutorId { get; init; }
+
+    public Guid ProjectId { get; init; }
 }

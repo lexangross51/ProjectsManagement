@@ -12,7 +12,7 @@
                 $('#managerName').autocomplete({
                     source: function (request, response){
                         $.ajax({
-                            url: '/Project/Employees/',
+                            url: '/Employee/EmployeesJson/',
                             type: 'GET',
                             data: { term: request.term },
                             success: function (data){

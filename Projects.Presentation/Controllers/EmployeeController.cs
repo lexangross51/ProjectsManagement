@@ -146,4 +146,19 @@ public class EmployeeController(IMediator mediator, ILogger<EmployeeController> 
             return NotFound();
         }
     }
+
+    [HttpGet]
+    public async Task<IActionResult> EmployeesJson(string term)
+    { 
+        var query = new GetEmployeeListQuery();
+        var listVm = await mediator.Send(query);
+
+        if (string.IsNullOrEmpty(term))
+            return Json(listVm.Employees
+                .Select(e => new { id = e.Id, value = e.FullName }));
+
+        return Json(listVm.Employees
+            .Where(e => e.FullName.Contains(term, StringComparison.OrdinalIgnoreCase))
+            .Select(e => new { id = e.Id, value = e.FullName }));
+    }
 }

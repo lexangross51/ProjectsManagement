@@ -22,4 +22,8 @@ public class TaskDetailsVm
     public Guid? ExecutorId { get; init; }
 
     public Employee? Executor { get; init; }
+    
+    public Guid ProjectId { get; init; }
+
+    public Project Project { get; init; } = default!;
 }

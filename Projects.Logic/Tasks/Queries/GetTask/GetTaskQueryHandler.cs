@@ -13,6 +13,7 @@ public class GetTaskQueryHandler(IUnitOfWork reposManager) : IRequestHandler<Get
         var task = await reposManager.Tasks.GetAsync(request.Id, cancellationToken) ??
                    throw new NotFoundException(nameof(ProjectTask), request.Id);
         var author = await reposManager.Employees.GetAsync(task.AuthorId, cancellationToken);
+        var project = await reposManager.Projects.GetAsync(task.ProjectId, cancellationToken);
 
         Employee? executor = null;
 
@@ -31,7 +32,9 @@ public class GetTaskQueryHandler(IUnitOfWork reposManager) : IRequestHandler<Get
             AuthorId = task.AuthorId,
             Author = author!,
             ExecutorId = task.ExecutorId,
-            Executor = executor
+            Executor = executor,
+            ProjectId = task.ProjectId,
+            Project = project!
         };
     }
 }

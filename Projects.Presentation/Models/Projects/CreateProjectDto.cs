@@ -35,5 +35,5 @@ public class CreateProjectStep4Dto
 
 public class CreateProjectStep5Dto
 {
-    public IList<IFormFile>? Files { get; set; }
+    public IList<IFormFile>? Files { get; init; }
 }

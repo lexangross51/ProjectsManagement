@@ -13,6 +13,6 @@ public class CreateEmployeeDto
     [MaxLength(256)]
     public string LastName { get; init; } = string.Empty;
 
-    [EmailAddress(ErrorMessage = "The email address is not valid.")]
+    [EmailAddress]
     public string Mail { get; init; } = string.Empty;
 }
