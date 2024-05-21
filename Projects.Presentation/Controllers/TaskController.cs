@@ -63,7 +63,7 @@ public class TaskController(IMediator mediator, ILogger<TaskController> logger,
             tasksVm.TaskList = listVm;
             cache.Set("TasksData", listVm);
 
-            return View("Tasks", tasksVm);
+            return View(tasksVm);
         }
         catch (Exception ex)
         {
@@ -213,10 +213,14 @@ public class TaskController(IMediator mediator, ILogger<TaskController> logger,
     {
         try
         {
+            // Store project id
+            var res = await mediator.Send(new GetTaskQuery {Id = id});
+            Guid projectId = res.ProjectId;
+            
             var command = new DeleteTaskCommand { Id = id };
             await mediator.Send(command);
 
-            return RedirectToAction(nameof(Tasks));
+            return RedirectToAction(nameof(TasksForProject), new { projectId });
         }
         catch (Exception ex)
         {

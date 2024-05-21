@@ -31,8 +31,12 @@ Layout = null;
 
     <div class="block">
         <label>Status </label>
+        @{
+            var items = new List<SelectListItem> { new() { Value = "", Text = "Select a status", Selected = true } };
+            items.AddRange(Html.GetEnumSelectList<TaskStatus>());
+        }
         <select asp-for="StatusFilter.Status" class="form-control width50px" 
-                asp-items="Html.GetEnumSelectList(typeof(TaskStatus))"></select>
+                asp-items="items"></select>
         <span asp-validation-for="StatusFilter.Status"></span>
     </div>
 

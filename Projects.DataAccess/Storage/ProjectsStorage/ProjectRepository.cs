@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Projects.DataAccess.Database;
 using Projects.DataAccess.Models;
-using Projects.DataAccess.Models.Tasks;
 
 namespace Projects.DataAccess.Storage.ProjectsStorage;
 
@@ -65,34 +64,34 @@ public class ProjectRepository(AppDbContext context) : IProjectRepository
             }
         }
 
-        // Tasks
-        var newTasks = entity.Tasks == null ? null : new List<ProjectTask>(entity.Tasks);
-        var newTasksId = newTasks?.Select(e => e.Id).ToList() ?? [];
-
-        var oldTasks = old.Tasks;
-        var tasksToDelete = oldTasks?.Where(t => !newTasksId.Contains(t.Id)).ToList();
-
-        // Delete the unwanted
-        if (tasksToDelete != null)
-        {
-            foreach (var task in tasksToDelete)
-            {
-                old.Tasks?.Remove(task);
-            }
-        }
-
-        // Add new ones, and keep the ones already have
-        if (newTasks != null)
-        {
-            old.Tasks ??= [];
-
-            foreach (var task in newTasks)
-            {
-                if (old.Tasks.Any(e => e.Id == task.Id)) continue;
-
-                old.Tasks.Add(task);
-            }
-        }
+        // // Tasks
+        // var newTasks = entity.Tasks == null ? null : new List<ProjectTask>(entity.Tasks);
+        // var newTasksId = newTasks?.Select(e => e.Id).ToList() ?? [];
+        //
+        // var oldTasks = old.Tasks;
+        // var tasksToDelete = oldTasks?.Where(t => !newTasksId.Contains(t.Id)).ToList();
+        //
+        // // Delete the unwanted
+        // if (tasksToDelete != null)
+        // {
+        //     foreach (var task in tasksToDelete)
+        //     {
+        //         old.Tasks?.Remove(task);
+        //     }
+        // }
+        //
+        // // Add new ones, and keep the ones already have
+        // if (newTasks != null)
+        // {
+        //     old.Tasks ??= [];
+        //
+        //     foreach (var task in newTasks)
+        //     {
+        //         if (old.Tasks.Any(e => e.Id == task.Id)) continue;
+        //
+        //         old.Tasks.Add(task);
+        //     }
+        // }
 
         await context.SaveChangesAsync(token);
     }

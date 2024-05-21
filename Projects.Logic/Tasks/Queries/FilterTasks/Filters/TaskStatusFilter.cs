@@ -7,7 +7,7 @@ namespace Projects.Logic.Tasks.Queries.FilterTasks.Filters;
 
 public class TaskStatusFilter : IFilterSpecification<TaskLookupDto>
 {
-    public TaskStatus? Status { get; init; }
+    public TaskStatus? Status { get; init; } = null;
     
     public Expression<Func<TaskLookupDto, bool>> Criteria
         => t => !Status.HasValue || Status.Value == t.Status;
