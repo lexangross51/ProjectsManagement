@@ -9,12 +9,8 @@ public class GetProjectQueryHandler(IUnitOfWork reposManager) : IRequestHandler<
 {
     public async Task<ProjectDetailsVm> Handle(GetProjectQuery request, CancellationToken cancellationToken)
     {
-        var project = await reposManager.Projects.GetWithExecutorsAsync(request.Id, cancellationToken);
-
-        if (project == null)
-        {
-            throw new NotFoundException(nameof(Project), request.Id);
-        }
+        var project = await reposManager.Projects.GetWithExecutorsAsync(request.Id, cancellationToken) ??
+                      throw new NotFoundException(nameof(Project), request.Id);
 
         Employee? manager = null;
 
@@ -34,7 +30,8 @@ public class GetProjectQueryHandler(IUnitOfWork reposManager) : IRequestHandler<
             DateEnd = project.DateEnd,
             ManagerId = project.ManagerId,
             Manager = manager,
-            Executors = project.Executors
+            Executors = project.Executors,
+            Tasks = project.Tasks
         };
     }
 }

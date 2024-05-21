@@ -9,12 +9,8 @@ public class UpdateEmployeeCommandHandler(IEmployeeRepository repos) : IRequestH
 {
     public async Task Handle(UpdateEmployeeCommand request, CancellationToken cancellationToken)
     {
-        var employee = await repos.GetAsync(request.Id, cancellationToken);
-
-        if (employee == null)
-        {
-            throw new NotFoundException(nameof(Employee), request.Id);
-        }
+        var employee = await repos.GetAsync(request.Id, cancellationToken) ??
+                       throw new NotFoundException(nameof(Employee), request.Id);
 
         employee.FirstName = request.FirstName;
         employee.MiddleName = request.MiddleName;

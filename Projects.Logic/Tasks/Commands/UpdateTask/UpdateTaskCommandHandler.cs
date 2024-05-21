@@ -9,12 +9,8 @@ public class UpdateTaskCommandHandler(ITaskRepository repos) : IRequestHandler<U
 {
     public async Task Handle(UpdateTaskCommand request, CancellationToken cancellationToken)
     {
-        var task = await repos.GetAsync(request.Id, cancellationToken);
-
-        if (task == null)
-        {
-            throw new NotFoundException(nameof(ProjectTask), request.Id);
-        }
+        var task = await repos.GetAsync(request.Id, cancellationToken) ??
+                   throw new NotFoundException(nameof(ProjectTask), request.Id);
 
         task.TaskName = request.TaskName;
         task.Priority = request.Priority;

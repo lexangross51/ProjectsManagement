@@ -9,12 +9,8 @@ public class DeleteProjectCommandHandler(IProjectRepository repos) : IRequestHan
 {
     public async Task Handle(DeleteProjectCommand request, CancellationToken cancellationToken)
     {
-        var project = await repos.GetAsync(request.Id, cancellationToken);
-
-        if (project == null)
-        {
-            throw new NotFoundException(nameof(Project), request.Id);
-        }
+        _ = await repos.GetAsync(request.Id, cancellationToken) ??
+                      throw new NotFoundException(nameof(Project), request.Id);
 
         await repos.DeleteAsync(request.Id, cancellationToken);
     }

@@ -10,12 +10,8 @@ public class UpdateProjectCommandHandler(IUnitOfWork reposManager) : IRequestHan
 {
     public async Task Handle(UpdateProjectCommand request, CancellationToken cancellationToken)
     {
-        var project = await reposManager.Projects.GetAsync(request.Id, cancellationToken);
-
-        if (project == null)
-        {
-            throw new NotFoundException(nameof(Project), request.Id);
-        }
+        var project = await reposManager.Projects.GetAsync(request.Id, cancellationToken) ??
+                      throw new NotFoundException(nameof(Project), request.Id);
 
         project.ProjectName = request.ProjectName;
         project.Priority = request.Priority;
@@ -33,6 +29,17 @@ public class UpdateProjectCommandHandler(IUnitOfWork reposManager) : IRequestHan
             if (employees != null)
             {
                 project.Executors = await employees.ToListAsync(cancellationToken);
+            }
+        }
+
+        if (request.TasksId != null)
+        {
+            var tasks = await reposManager.Tasks.GetAllAsync(cancellationToken);
+            tasks = tasks?.Where(e => request.TasksId.Contains(e.Id));
+
+            if (tasks != null)
+            {
+                project.Tasks = await tasks.ToListAsync(cancellationToken);
             }
         }
 

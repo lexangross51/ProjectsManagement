@@ -9,12 +9,8 @@ public class DeleteTaskCommandHandler(ITaskRepository repos) : IRequestHandler<D
 {
     public async Task Handle(DeleteTaskCommand request, CancellationToken cancellationToken)
     {
-        var task = await repos.GetAsync(request.Id, cancellationToken);
-
-        if (task == null)
-        {
-            throw new NotFoundException(nameof(ProjectTask), request.Id);
-        }
+        _ = await repos.GetAsync(request.Id, cancellationToken) ??
+                   throw new NotFoundException(nameof(ProjectTask), request.Id);
 
         await repos.DeleteAsync(request.Id, cancellationToken);
     }

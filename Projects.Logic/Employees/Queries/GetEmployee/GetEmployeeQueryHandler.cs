@@ -9,12 +9,8 @@ public class GetEmployeeQueryHandler(IEmployeeRepository repos) : IRequestHandle
 {
     public async Task<EmployeeDetailsVm> Handle(GetEmployeeQuery request, CancellationToken cancellationToken)
     {
-        var employee = await repos.GetWithProjectsAsync(request.Id, cancellationToken);
-
-        if (employee == null)
-        {
-            throw new NotFoundException(nameof(Employee), request.Id);
-        }
+        var employee = await repos.GetWithProjectsAsync(request.Id, cancellationToken) ??
+                       throw new NotFoundException(nameof(Employee), request.Id);
 
         return new EmployeeDetailsVm
         {
@@ -24,7 +20,9 @@ public class GetEmployeeQueryHandler(IEmployeeRepository repos) : IRequestHandle
             LastName = employee.LastName,
             Mail = employee.Mail,
             Projects = employee.Projects,
-            ManagedProjects = employee.ManagedProjects
+            ManagedProjects = employee.ManagedProjects,
+            Tasks = employee.Tasks,
+            CreatedTasks = employee.CreatedTasks
         };
     }
 }

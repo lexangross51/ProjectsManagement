@@ -10,8 +10,7 @@ public class GetTaskQueryHandler(ITaskRepository repos) : IRequestHandler<GetTas
         var allTasks = await repos.GetAllAsync(cancellationToken);
         var taskListVm = new TaskListVm();
 
-        if (allTasks == null)
-            return taskListVm;
+        if (allTasks == null) return taskListVm;
 
         foreach (var task in allTasks)
         {

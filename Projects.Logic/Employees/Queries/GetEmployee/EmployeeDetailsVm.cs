@@ -1,4 +1,5 @@
 ﻿using Projects.DataAccess.Models;
+using Projects.DataAccess.Models.Tasks;
 
 namespace Projects.Logic.Employees.Queries.GetEmployee;
 
@@ -17,4 +18,8 @@ public class EmployeeDetailsVm
     public IEnumerable<Project>? Projects { get; init; }
     
     public IEnumerable<Project>? ManagedProjects { get; init; }
+
+    public IEnumerable<ProjectTask>? Tasks { get; init; }
+
+    public IEnumerable<ProjectTask>? CreatedTasks { get; init; }
 }

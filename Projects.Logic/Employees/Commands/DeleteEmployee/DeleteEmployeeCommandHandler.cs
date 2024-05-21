@@ -9,12 +9,8 @@ public class DeleteEmployeeCommandHandler(IEmployeeRepository repos) : IRequestH
 {
     public async Task Handle(DeleteEmployeeCommand request, CancellationToken cancellationToken)
     {
-        var employee = await repos.GetAsync(request.Id, cancellationToken);
-
-        if (employee == null)
-        {
+        _ = await repos.GetAsync(request.Id, cancellationToken) ?? 
             throw new NotFoundException(nameof(Employee), request.Id);
-        }
 
         await repos.DeleteAsync(request.Id, cancellationToken);
     }
