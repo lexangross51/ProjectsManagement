@@ -9,23 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e857d069-5a3d-41ef-a638-a8bb98906db5" name="Changes" comment="Added new entity ProjectTask">
-      <change afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_TaskTableWithDelete.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Task/Tasks.cshtml" afterDir="false" />
+    <list default="true" id="e857d069-5a3d-41ef-a638-a8bb98906db5" name="Changes" comment="Finally added tasks">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Logic/Projects/Commands/UpdateProject/UpdateProjectCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Projects/Commands/UpdateProject/UpdateProjectCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Logic/Projects/Commands/UpdateProject/UpdateProjectCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Projects/Commands/UpdateProject/UpdateProjectCommandHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Logic/Projects/Queries/GetProject/ProjectDetailsVm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Projects/Queries/GetProject/ProjectDetailsVm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Logic/Tasks/Commands/UpdateTask/UpdateTaskCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Tasks/Commands/UpdateTask/UpdateTaskCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Logic/Tasks/Commands/UpdateTask/UpdateTaskCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Tasks/Commands/UpdateTask/UpdateTaskCommandHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Logic/Tasks/Queries/GetTaskList/GetTaskQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Tasks/Queries/GetTaskList/GetTaskQueryHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Logic/Tasks/Queries/GetTaskList/TaskLookupDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Tasks/Queries/GetTaskList/TaskLookupDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Controllers/ProjectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/ProjectController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/UpdateEmployee.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/UpdateEmployee.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Project/ProjectDetails.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Project/ProjectDetails.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Project/Projects.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Project/Projects.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Project/UpdateProject.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Project/UpdateProject.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.DataAccess/Models/Employee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.DataAccess/Models/Employee.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.DataAccess/Storage/EmployeesStorage/EmployeeRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.DataAccess/Storage/EmployeesStorage/EmployeeRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.DataAccess/Storage/EmployeesStorage/IEmployeeRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.DataAccess/Storage/EmployeesStorage/IEmployeeRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Logic/Employees/Queries/GetEmployee/GetEmployeeQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Employees/Queries/GetEmployee/GetEmployeeQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-wal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/EmployeeDetails.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/EmployeeDetails.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +49,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/88ec3bc3f37e76fbcc932a25f9f0c1c29fe2b343/src/Mvc/Mvc.Core/src/Infrastructure/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/88ec3bc3f37e76fbcc932a25f9f0c1c29fe2b343/src/Mvc/Mvc.Core/src/Infrastructure/ControllerActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/78c860a4a0696d27b2942ef6996b8ceec84aec6b56a4221bd8ce81cc42954d/RequestHandlerWrapper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Gross/Projects/ProjectsManagement/Projects.DataAccess/Migrations/AppDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Gross/Projects/ProjectsManagement/Projects.DataAccess/Migrations/AppDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Gross/Projects/ProjectsManagement/Projects.DataAccess/Migrations/AppDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
@@ -166,7 +158,7 @@
       <workItem from="1716210661967" duration="10828000" />
       <workItem from="1716222560267" duration="289000" />
       <workItem from="1716273279945" duration="1328000" />
-      <workItem from="1716276390749" duration="16178000" />
+      <workItem from="1716276390749" duration="18992000" />
     </task>
     <task id="LOCAL-00001" summary="The almost-complete first assignment">
       <option name="closed" value="true" />
@@ -272,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716278487101</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Finally added tasks">
+      <option name="closed" value="true" />
+      <created>1716292914664</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1716292914664</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,9 +308,27 @@
     <MESSAGE value="Added initial migration" />
     <MESSAGE value="Added ProjectTask via migration - works)" />
     <MESSAGE value="Added new entity ProjectTask" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new entity ProjectTask" />
+    <MESSAGE value="Finally added tasks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finally added tasks" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Projects.DataAccess/Storage/EmployeesStorage/EmployeeRepository.cs</url>
+          <line>23</line>
+          <properties documentPath="E:\Gross\Projects\ProjectsManagement\Projects.DataAccess\Storage\EmployeesStorage\EmployeeRepository.cs" containingFunctionPresentation="Method 'DeleteAsync'">
+            <startOffsets>
+              <option value="964" />
+            </startOffsets>
+            <endOffsets>
+              <option value="965" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#Projects.Presentation.Models.Projects.CreateProjectStep5Dto" memberName="Files" />

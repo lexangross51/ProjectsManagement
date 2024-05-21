@@ -20,20 +20,20 @@ public class Employee : IEntity
     /// <summary>
     /// Projects in which the employee is the executor
     /// </summary>
-    public IEnumerable<Project>? Projects { get; set; }
+    public IEnumerable<Project>? Projects { get; init; }
 
     /// <summary>
     /// Projects in which the employee is a manager
     /// </summary>
-    public IEnumerable<Project>? ManagedProjects { get; set; }
+    public IEnumerable<Project>? ManagedProjects { get; init; }
 
     /// <summary>
     /// Tasks created by this employee
     /// </summary>
-    public IEnumerable<ProjectTask>? CreatedTasks { get; set; }
+    public IEnumerable<ProjectTask>? CreatedTasks { get; init; }
 
     /// <summary>
     /// Tasks that have been assigned to the employee in question
     /// </summary>
-    public IEnumerable<ProjectTask>? Tasks { get; set; }
+    public IEnumerable<ProjectTask>? Tasks { get; init; } = new List<ProjectTask>();
 }

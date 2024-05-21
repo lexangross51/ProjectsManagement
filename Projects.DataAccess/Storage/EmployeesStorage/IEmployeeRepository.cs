@@ -5,5 +5,5 @@ namespace Projects.DataAccess.Storage.EmployeesStorage;
 
 public interface IEmployeeRepository : IRepository<Employee>
 {
-    Task<Employee?> GetWithProjectsAsync(Guid id, CancellationToken token);
+    Task<Employee?> GetWithProjectsAndTasksAsync(Guid id, CancellationToken token);
 }

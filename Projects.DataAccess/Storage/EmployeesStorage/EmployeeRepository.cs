@@ -12,15 +12,17 @@ public class EmployeeRepository(AppDbContext context) : IEmployeeRepository
     public async Task<IQueryable<Employee>?> GetAllAsync(CancellationToken token)
         => await Task.FromResult(context.Employees);
     
-    public async Task<Employee?> GetWithProjectsAsync(Guid id, CancellationToken token)
+    public async Task<Employee?> GetWithProjectsAndTasksAsync(Guid id, CancellationToken token)
         => await context.Employees
             .Include(e => e.Projects)
             .Include(e => e.ManagedProjects)
+            .Include(e => e.CreatedTasks)
+            .Include(e => e.Tasks)
             .SingleOrDefaultAsync(e => e.Id == id, token);
 
     public async Task DeleteAsync(Guid id, CancellationToken token)
     {
-        var entity = await context.Employees.SingleOrDefaultAsync(e => e.Id == id, token);
+        var entity = await GetWithProjectsAndTasksAsync(id, token);
 
         if (entity == null) return;
 

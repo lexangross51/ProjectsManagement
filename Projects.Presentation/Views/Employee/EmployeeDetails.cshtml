@@ -50,6 +50,30 @@
     </ul>
 }
 
+@if (Model.CreatedTasks != null && Model.CreatedTasks.Any())
+{
+<h2>Created tasks</h2>
+
+<ul>
+    @foreach (var t in Model.CreatedTasks)
+    {
+    <li>@t.TaskName</li>
+    }
+</ul>
+}
+
+@if (Model.Tasks != null && Model.Tasks.Any())
+{
+<h2>Performed tasks</h2>
+
+<ul>
+    @foreach (var t in Model.Tasks)
+    {
+    <li>@t.TaskName</li>
+    }
+</ul>
+}
+
 <button type="button" onclick="location.href='@Url.Action("Employees", "Employee")'">Employee list</button>
 @using (Html.BeginForm("DeleteEmployee", "Employee", new { id = Model.Id }, FormMethod.Post))
 {

@@ -9,7 +9,7 @@ public class GetEmployeeQueryHandler(IEmployeeRepository repos) : IRequestHandle
 {
     public async Task<EmployeeDetailsVm> Handle(GetEmployeeQuery request, CancellationToken cancellationToken)
     {
-        var employee = await repos.GetWithProjectsAsync(request.Id, cancellationToken) ??
+        var employee = await repos.GetWithProjectsAndTasksAsync(request.Id, cancellationToken) ??
                        throw new NotFoundException(nameof(Employee), request.Id);
 
         return new EmployeeDetailsVm
