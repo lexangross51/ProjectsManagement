@@ -1,8 +1,16 @@
 ﻿@model Projects.Presentation.Models.Tasks.UpdateTaskDto
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Projects.DataAccess.Database
+@using Projects.DataAccess.Models
 @using TaskStatus = Projects.DataAccess.Models.Tasks.TaskStatus
-
+@inject UserManager<ApplicationUser> UserManager;
 @{
     Layout = null;
+    var user = await UserManager.GetUserAsync(User);
+    var isAdmin = user != null && await UserManager.IsInRoleAsync(user, Roles.Admin);
+    var isDirector = user != null && await UserManager.IsInRoleAsync(user, Roles.Director);
+    var isManager = user != null && await UserManager.IsInRoleAsync(user, Roles.Manager);
 }
 
 <!DOCTYPE html>
@@ -20,58 +28,82 @@
     <div>
         <input type="hidden" asp-for="Id"/>
     </div>
-    <div>
-        <label asp-for="TaskName">Task name: </label>
-        <input asp-for="TaskName"/>
-        <span asp-validation-for="TaskName"></span>
-    </div>
-    <div>
-        <label asp-for="Priority">Priority: </label>
-        <input asp-for="Priority"/>
-        <span asp-validation-for="Priority"></span>
-    </div>
+    
+    @if (isAdmin || isDirector || isManager)
+    {
+        <div>
+            <label asp-for="TaskName">Task name: </label>
+            <input asp-for="TaskName"/>
+            <span asp-validation-for="TaskName"></span>
+        </div>
+        <div>
+            <label asp-for="Priority">Priority: </label>
+            <input asp-for="Priority"/>
+            <span asp-validation-for="Priority"></span>
+        </div>
+    }
+    else
+    {
+        <div>
+            <input type="hidden" asp-for="TaskName"/>
+            <input type="hidden" asp-for="Priority"/>
+        </div>
+    }
+    
     <div>
         <label asp-for="Status">Status: </label>
         <select asp-for="Status" asp-items="Html.GetEnumSelectList(typeof(TaskStatus))"></select>
         <span asp-validation-for="Status"></span>
     </div>
-    <div>
-        <label asp-for="Description">Description: </label>
-        <input asp-for="Description" />
-        <span asp-validation-for="Description"></span>
-    </div>
-    <div>
-        <label>Executor: </label>
-        <input id="executorName" value="@Model.Executor?.FullName"/>
-        <input id="executorId" type="hidden" asp-for="ExecutorId"/>
-        <span asp-validation-for="ExecutorId"></span>
+    
+    @if (isAdmin || isDirector || isManager)
+    {
+        <div>
+            <label asp-for="Description">Description: </label>
+            <input asp-for="Description" />
+            <span asp-validation-for="Description"></span>
+        </div>
+        <div>
+            <label>Executor: </label>
+            <input id="executorName" value="@Model.Executor?.FullName"/>
+            <input id="executorId" type="hidden" asp-for="ExecutorId"/>
+            <span asp-validation-for="ExecutorId"></span>
+        </div>
+    }
+    else
+    {
+        <div>
+            <input type="hidden" asp-for="Description" />
+            <input id="executorName" type="hidden" value="@Model.Executor?.FullName"/>
+            <input id="executorId" type="hidden" asp-for="ExecutorId"/>
+        </div>
+    }
 
-        <script type="text/javascript">
-                $(document).ready(function () {
-                    $('#executorName').autocomplete({
-                        source: function (request, response) {
-                            $.ajax({
-                                url: '/Employee/EmployeesJson',
-                                type: 'GET',
-                                data: { term: request.term },
-                                success: function (data) {
-                                    response($.map(data, function (item) {
-                                        return { label: item.value, value: item.id }
-                                    }))
-                                }
-                            });
-                        },
-                        select: function (event, ui) {
-                            $('#executorName').val(ui.item.label);
-                            $('#executorId').val(ui.item.value);
-                            return false;
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#executorName').autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: '/Employee/EmployeesJson',
+                        type: 'GET',
+                        data: { term: request.term, role: "Employee" },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.value, value: item.id }
+                            }))
                         }
-                    }).on('mousedown', function () {
-                        $(this).autocomplete("search", " ");
                     });
-                });
-            </script>
-    </div>
+                },
+                select: function (event, ui) {
+                    $('#executorName').val(ui.item.label);
+                    $('#executorId').val(ui.item.value);
+                    return false;
+                }
+            }).on('mousedown', function () {
+                $(this).autocomplete("search", " ");
+            });
+        });
+    </script>
     
     <div>
         <input type="submit" value="Update"/>

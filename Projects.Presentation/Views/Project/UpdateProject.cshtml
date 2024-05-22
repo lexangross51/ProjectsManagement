@@ -64,34 +64,47 @@
                 <label>Manager: </label>
                 <input type="text" id="managerName" value="@Model.Manager?.FullName"/>
                 <input type="hidden" id="managerId" asp-for="ManagerId"/>
-
-                <script type="text/javascript">
-                $(document).ready(function () {
-                    $('#managerName').autocomplete({
-                        source: function (request, response) {
-                            $.ajax({
-                                url: '/Employee/EmployeesJson/',
-                                type: 'GET',
-                                data: { term: request.term, role: "Manager" },
-                                success: function (data) {
-                                    response($.map(data, function (item) {
-                                        return { label: item.value, value: item.id }
-                                    }))
-                                }
-                            });
-                        },
-                        select: function (event, ui) {
-                            $('#managerName').val(ui.item.label);
-                            $('#managerId').val(ui.item.value);
-                            return false;
-                        }
-                    }).on('mousedown', function () {
-                        $(this).autocomplete("search", " ");
-                    });
-                });
-            </script>
             </div>
         }
+        else
+        {
+            <div>
+                <input type="hidden" asp-for="ProjectName"/>
+                <input type="hidden" asp-for="CompanyCustomer"/>
+                <input type="hidden" asp-for="CompanyExecutor"/>
+                <input type="hidden" asp-for="Priority"/>
+                <input type="hidden" asp-for="DateStart"/>
+                <input type="hidden" asp-for="DateEnd"/>
+                <input type="hidden" id="managerName" value="@Model.Manager?.FullName"/>
+                <input type="hidden" id="managerId" asp-for="ManagerId"/>
+            </div>
+        }
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#managerName').autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: '/Employee/EmployeesJson/',
+                            type: 'GET',
+                            data: { term: request.term, role: "Manager" },
+                            success: function (data) {
+                                response($.map(data, function (item) {
+                                    return { label: item.value, value: item.id }
+                                }))
+                            }
+                        });
+                    },
+                    select: function (event, ui) {
+                        $('#managerName').val(ui.item.label);
+                        $('#managerId').val(ui.item.value);
+                        return false;
+                    }
+                }).on('mousedown', function () {
+                    $(this).autocomplete("search", " ");
+                });
+            });
+        </script>
 
         @if (isAdmin || isDirector || isManager)
         {

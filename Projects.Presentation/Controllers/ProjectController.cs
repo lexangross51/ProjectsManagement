@@ -234,7 +234,7 @@ public class ProjectController(IMediator mediator, IMemoryCache cache, ILogger<P
     }
 
     [HttpGet]
-    [Authorize (Roles="Admin,Director")]
+    [Authorize (Roles="Admin,Director,Manager")]
     public async Task<IActionResult> UpdateProject(Guid id)
     {
         try
@@ -270,7 +270,7 @@ public class ProjectController(IMediator mediator, IMemoryCache cache, ILogger<P
     }
 
     [HttpPost]
-    [Authorize (Roles="Admin,Director")]
+    [Authorize (Roles="Admin,Director,Manager")]
     public async Task<IActionResult> UpdateProject(UpdateProjectDto dto)
     {
         if (!ModelState.IsValid)

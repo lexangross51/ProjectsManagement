@@ -3,7 +3,6 @@
 @using Projects.DataAccess.Models
 @model Projects.Logic.Projects.Queries.GetProject.ProjectDetailsVm
 @inject UserManager<ApplicationUser> UserManager
-
 @{
     Layout = null;
     var user = await UserManager.GetUserAsync(User);

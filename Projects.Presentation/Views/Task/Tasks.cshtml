@@ -1,8 +1,16 @@
+@using Microsoft.AspNetCore.Identity
+@using Projects.DataAccess.Database
+@using Projects.DataAccess.Models
 @using TaskStatus = Projects.DataAccess.Models.Tasks.TaskStatus
 @model Projects.Presentation.Models.Tasks.TasksViewModel
+@inject UserManager<ApplicationUser> UserManager;
 
-@{
-Layout = null;
+@{ 
+    Layout = null;
+    var user = await UserManager.GetUserAsync(User);
+    var isAdmin = user != null && await UserManager.IsInRoleAsync(user, Roles.Admin);
+    var isDirector = user != null && await UserManager.IsInRoleAsync(user, Roles.Director);
+    var isManager = user != null && await UserManager.IsInRoleAsync(user, Roles.Manager);
 }
 
 <!DOCTYPE html>
@@ -51,7 +59,7 @@ Layout = null;
 </form>
 
 <div id="tasksTable" class="block">
-    @if (Model.ShowDeleteAndAddButtons)
+    @if (isAdmin || isDirector || isManager)
     {
         @(await Html.PartialAsync("_TaskTableWithDelete", Model))
     }
@@ -61,17 +69,15 @@ Layout = null;
     }
 </div>
 
-@if (Model.ShowDeleteAndAddButtons)
+@if (Model.ShowDeleteAndAddButtons && (isAdmin || isDirector || isManager))
 {
     <button type="button" class="base-button" onclick="location.href='@Url.Action("CreateTask", "Task", 
         new { projectId = Model.ProjectId })'">Add new</button>   
 }
-else
-{
-    <button type="button" class="base-button" onclick="location.href='@Url.Action("Index", "Home")'">
-        Main page
-    </button>
-}
+
+<button type="button" class="base-button" onclick="location.href='@Url.Action("Index", "Home")'">
+    Main page
+</button>
 
 <script>
     $(document).ready(function () {

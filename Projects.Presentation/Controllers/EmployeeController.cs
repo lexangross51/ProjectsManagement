@@ -12,12 +12,13 @@ using Projects.Presentation.Models.Employees;
 
 namespace Projects.Presentation.Controllers;
 
-[Authorize(Roles = "Admin,Director")]
 public class EmployeeController(IMediator mediator, ILogger<EmployeeController> logger,
     UserManager<ApplicationUser> userManager,
     RoleManager<IdentityRole> roleManager) : Controller
 {
     [HttpGet]
+    [Authorize(Roles = "Admin,Director")]
+    
     public async Task<IActionResult> Employees()
     {
         try
@@ -35,6 +36,7 @@ public class EmployeeController(IMediator mediator, ILogger<EmployeeController> 
     }
     
     [HttpGet]
+    [Authorize(Roles = "Admin,Director")]
     public async Task<IActionResult> EmployeeDetails(Guid id)
     {
         try
@@ -52,9 +54,11 @@ public class EmployeeController(IMediator mediator, ILogger<EmployeeController> 
     }
 
     [HttpGet]
+    [Authorize(Roles = "Admin,Director")]
     public IActionResult CreateEmployee() => View();
 
     [HttpPost]
+    [Authorize(Roles = "Admin,Director")]
     public async Task<IActionResult> CreateEmployee(CreateEmployeeDto dto)
     {
         if (!ModelState.IsValid)
@@ -117,6 +121,7 @@ public class EmployeeController(IMediator mediator, ILogger<EmployeeController> 
     }
 
     [HttpGet]
+    [Authorize(Roles = "Admin,Director")]
     public async Task<IActionResult> UpdateEmployee(Guid id)
     {
         try
@@ -141,6 +146,7 @@ public class EmployeeController(IMediator mediator, ILogger<EmployeeController> 
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin,Director")]
     public async Task<IActionResult> UpdateEmployee(UpdateEmployeeDto dto)
     {
         if (!ModelState.IsValid)
@@ -171,6 +177,7 @@ public class EmployeeController(IMediator mediator, ILogger<EmployeeController> 
     
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin,Director")]
     public async Task<IActionResult> DeleteEmployee(Guid id)
     {
         try

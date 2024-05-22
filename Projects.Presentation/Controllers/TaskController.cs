@@ -1,6 +1,10 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using Projects.DataAccess.Database;
+using Projects.DataAccess.Models;
 using Projects.Logic.Tasks.Commands.CreateTask;
 using Projects.Logic.Tasks.Commands.DeleteTask;
 using Projects.Logic.Tasks.Commands.UpdateTask;
@@ -12,14 +16,25 @@ using Projects.Presentation.Models.Tasks;
 
 namespace Projects.Presentation.Controllers;
 
-public class TaskController(IMediator mediator, ILogger<TaskController> logger, 
-    IMemoryCache cache) : Controller
+[Authorize(Roles = "Admin,Director,Manager,Employee")]
+public class TaskController(IMediator mediator, ILogger<TaskController> logger, IMemoryCache cache,
+    UserManager<ApplicationUser> userManager) : Controller
 {
     [HttpGet]
     public async Task<IActionResult> Tasks(TasksViewModel tasksVm)
     {
         try
         {
+            var currentUser = await userManager.GetUserAsync(User);
+
+            if (currentUser == null)
+            {
+                return NoContent();
+            }
+
+            Guid currentUserId = Guid.Parse(currentUser.Id);
+            var userRoles = await userManager.GetRolesAsync(currentUser);
+            
             // If ajax request and data already in cache
             if (Request.Headers.XRequestedWith == "XMLHttpRequest" &&
                 cache.TryGetValue<TaskListVm>("TasksData", out var tasksVmCache) &&
@@ -58,7 +73,17 @@ public class TaskController(IMediator mediator, ILogger<TaskController> logger,
                     : PartialView("_TaskTable", tasksVm);
             }
 
-            var query = new GetTaskListQuery();
+            var query = new GetTaskListQuery { UserId = currentUserId };
+
+            if (userRoles.Contains(Roles.Manager))
+            {
+                query.Role = Roles.Manager;
+            }
+            else if (userRoles.Contains(Roles.Employee))
+            {
+                query.Role = Roles.Employee;
+            }
+            
             var listVm = await mediator.Send(query);
             tasksVm.TaskList = listVm;
             cache.Set("TasksData", listVm);
@@ -77,12 +102,32 @@ public class TaskController(IMediator mediator, ILogger<TaskController> logger,
     {
         try
         {
+            var currentUser = await userManager.GetUserAsync(User);
+
+            if (currentUser == null)
+            {
+                return NoContent();
+            }
+
+            Guid currentUserId = Guid.Parse(currentUser.Id);
+            var userRoles = await userManager.GetRolesAsync(currentUser);
+            
             var tasksVm = new TasksViewModel
             {
                 ProjectId = projectId, 
                 ShowDeleteAndAddButtons = true
             };
-            var query = new GetTaskListQuery();
+            var query = new GetTaskListQuery { UserId = currentUserId };
+
+            if (userRoles.Contains(Roles.Manager))
+            {
+                query.Role = Roles.Manager;
+            }
+            else if (userRoles.Contains(Roles.Employee))
+            {
+                query.Role = Roles.Employee;
+            }
+            
             var listVm = await mediator.Send(query);
             listVm.Tasks = listVm.Tasks.Where(t => t.ProjectId == projectId).ToList();
             tasksVm.TaskList = listVm;
@@ -115,10 +160,12 @@ public class TaskController(IMediator mediator, ILogger<TaskController> logger,
     }
 
     [HttpGet]
+    [Authorize(Roles = "Admin,Director,Manager")]
     public IActionResult CreateTask(Guid projectId) => View(new CreateTaskDto { ProjectId = projectId });
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin,Director,Manager")]
     public async Task<IActionResult> CreateTask(CreateTaskDto dto)
     {
         if (!ModelState.IsValid)
@@ -209,6 +256,7 @@ public class TaskController(IMediator mediator, ILogger<TaskController> logger,
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin,Director,Manager")]
     public async Task<IActionResult> DeleteTask(Guid id)
     {
         try
@@ -228,5 +276,4 @@ public class TaskController(IMediator mediator, ILogger<TaskController> logger,
             return NotFound();
         }
     }
-
 }
