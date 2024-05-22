@@ -2,13 +2,13 @@
 
 namespace Projects.Logic.Tasks.Queries.GetTaskList;
 
-public class TaskLookupDto
+public readonly struct TaskLookupDto
 {
     public Guid Id { get; init; }
     
     public Guid ProjectId { get; init; }
 
-    public string TaskName { get; init; } = string.Empty;
+    public string TaskName { get; init; }
 
     public TaskStatus Status { get; init; }
 

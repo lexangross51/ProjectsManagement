@@ -17,7 +17,7 @@
                             $.ajax({
                                 url: '/Employee/EmployeesJson/',
                                 type: 'GET',
-                                data: {term: request.term},
+                                data: {term: request.term, role: "Employee" },
                                 success: function (data){
                                     response($.map(data,  function (item) {
                                         return {label: item.value, value: item.id}

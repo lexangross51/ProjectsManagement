@@ -1,6 +1,10 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using Projects.DataAccess.Database;
+using Projects.DataAccess.Models;
 using Projects.Logic.Projects.Commands.CreateProject;
 using Projects.Logic.Projects.Commands.DeleteProject;
 using Projects.Logic.Projects.Commands.UpdateProject;
@@ -12,8 +16,8 @@ using Projects.Presentation.Models.Projects;
 
 namespace Projects.Presentation.Controllers;
 
-public class ProjectController(IMediator mediator, IMemoryCache cache, 
-    ILogger<ProjectController> logger) : Controller
+public class ProjectController(IMediator mediator, IMemoryCache cache, ILogger<ProjectController> logger, 
+    UserManager<ApplicationUser> userManager) : Controller
 {
     // mediator - is used to send requests to their handlers
     // cache - is used to avoid making unnecessary queries to the database
@@ -21,10 +25,21 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
     //          for storing data from different steps of the wizard)
 
     [HttpGet]
+    [Authorize (Roles="Admin,Director,Manager,Employee")]
     public async Task<IActionResult> Projects(ProjectsViewModel projectsVm)
     {
         try
         {
+            var currentUser = await userManager.GetUserAsync(User);
+
+            if (currentUser == null)
+            {
+                return NoContent();
+            }
+
+            var userId = Guid.Parse(currentUser.Id);
+            var userRoles = await userManager.GetRolesAsync(currentUser);
+            
             // If ajax request and data already in cache
             if (Request.Headers.XRequestedWith == "XMLHttpRequest" &&
                 cache.TryGetValue<ProjectListVm>("ProjectsData", out var projectsVmCache) && 
@@ -53,8 +68,20 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
                 projectsVm.ProjectsList = await mediator.Send(sortQuery);
                 return PartialView("_ProjectTable", projectsVm);
             }
+
+            var query = new GetProjectListQuery { UserId = userId };
+
+            // If user manager
+            if (userRoles.Contains(Roles.Manager))
+            {
+                query.Role = Roles.Manager;
+            }
+            // If user employee
+            else if (userRoles.Contains(Roles.Employee))
+            {
+                query.Role = Roles.Employee;
+            }
             
-            var query = new GetProjectListQuery();
             var listVm = await mediator.Send(query);
             projectsVm.ProjectsList = listVm;
             cache.Set("ProjectsData", listVm);
@@ -69,6 +96,7 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
     }
 
     [HttpGet]
+    [Authorize (Roles="Admin,Director,Manager,Employee")]
     public async Task<IActionResult> ProjectDetails(Guid id)
     {
         try
@@ -86,9 +114,11 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
     }
 
     [HttpGet]
+    [Authorize (Roles="Admin,Director")]
     public IActionResult CreateProject() => View();
 
     [HttpPost]
+    [Authorize (Roles="Admin,Director")]
     public IActionResult CreateProjectStep1(CreateProjectStep1Dto dto)
     { 
         if (!ModelState.IsValid)
@@ -101,6 +131,7 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
     }
 
     [HttpPost]
+    [Authorize (Roles="Admin,Director")]
     public IActionResult CreateProjectStep2(CreateProjectStep2Dto dto)
     {
         if (!ModelState.IsValid)
@@ -113,6 +144,7 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
     }
     
     [HttpPost]
+    [Authorize (Roles="Admin,Director")]
     public IActionResult CreateProjectStep3(CreateProjectStep3Dto dto)
     {
         cache.Set("Step3Data", dto);
@@ -120,6 +152,7 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
     }
 
     [HttpPost]
+    [Authorize (Roles="Admin,Director")]
     public IActionResult CreateProjectStep4(CreateProjectStep4Dto dto)
     {
         cache.Set("Step4Data", dto);
@@ -127,6 +160,7 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
     }
     
     [HttpPost]
+    [Authorize (Roles="Admin,Director")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> CreateProject(CreateProjectStep5Dto dto)
     {
@@ -181,6 +215,7 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
     }
 
     [HttpPost]
+    [Authorize (Roles="Admin,Director")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteProject(Guid id)
     {
@@ -199,6 +234,7 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
     }
 
     [HttpGet]
+    [Authorize (Roles="Admin,Director")]
     public async Task<IActionResult> UpdateProject(Guid id)
     {
         try
@@ -234,6 +270,7 @@ public class ProjectController(IMediator mediator, IMemoryCache cache,
     }
 
     [HttpPost]
+    [Authorize (Roles="Admin,Director")]
     public async Task<IActionResult> UpdateProject(UpdateProjectDto dto)
     {
         if (!ModelState.IsValid)

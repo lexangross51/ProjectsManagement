@@ -5,7 +5,7 @@ namespace Projects.DataAccess.Models;
 
 public class Employee : IEntity
 {
-    public Guid Id { get; } = Guid.NewGuid();
+    public Guid Id { get; init; }
 
     public string FirstName { get; set; } = string.Empty;
 

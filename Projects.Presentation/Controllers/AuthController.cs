@@ -20,7 +20,7 @@ public class AuthController(SignInManager<ApplicationUser> signInManager) : Cont
 
         try
         {
-            var result = await signInManager.PasswordSignInAsync(dto.UserName, dto.Password, dto.RememberMe, false);
+            var result = await signInManager.PasswordSignInAsync(dto.UserName, dto.Password, false, false);
 
             if (result.Succeeded)
             {
@@ -36,5 +36,13 @@ public class AuthController(SignInManager<ApplicationUser> signInManager) : Cont
             Console.WriteLine(ex);
             throw;
         }
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Logout()
+    {
+        await signInManager.SignOutAsync();
+        return RedirectToAction(nameof(Login));
     }
 }

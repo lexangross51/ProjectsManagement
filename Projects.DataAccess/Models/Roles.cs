@@ -1,4 +1,4 @@
-﻿namespace Projects.Presentation.Models.Auth;
+﻿namespace Projects.DataAccess.Models;
 
 public readonly struct Roles
 {

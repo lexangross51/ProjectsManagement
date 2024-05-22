@@ -1,10 +1,10 @@
 ﻿namespace Projects.Logic.Projects.Queries.GetProjectList;
 
-public class ProjectLookupDto
+public readonly struct ProjectLookupDto
 {
     public Guid Id { get; init; }
 
-    public string ProjectName { get; init; } = string.Empty;
+    public string ProjectName { get; init; }
     
     public uint Priority { get; init; }
     

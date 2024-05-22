@@ -16,4 +16,8 @@
       <ProjectReference Include="..\Projects.DataAccess\Projects.DataAccess.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Projects\Queries\GetProjectsForUser\" />
+    </ItemGroup>
+
 </Project>

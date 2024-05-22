@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Projects.DataAccess.Database;
+using Projects.DataAccess.Models;
 using Projects.Presentation.Models.Auth;
 
 namespace Projects.Presentation.Extensions;
 
 public static class WebApplicationExtensions
 {
-    public static async Task SeedRolesAndAdmin(this WebApplication app, RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
+    public static async Task SeedRolesAndAdmin(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
     {
         var roleNames = new[] { Roles.Admin, Roles.Director, Roles.Manager, Roles.Employee };
 
@@ -30,7 +31,7 @@ public static class WebApplicationExtensions
                 Email = "admin@gmail.com",
             };
 
-            var res = await userManager.CreateAsync(admin, "Admin123");
+            await userManager.CreateAsync(admin, "Admin123");
             await userManager.AddToRoleAsync(admin, Roles.Admin);
         }
     }

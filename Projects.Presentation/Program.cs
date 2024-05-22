@@ -28,7 +28,7 @@ using (var scope = app.Services.CreateScope())
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
-    app.SeedRolesAndAdmin(roleManager, userManager).Wait();
+    WebApplicationExtensions.SeedRolesAndAdmin(roleManager, userManager).Wait();
 }
 
 if (!app.Environment.IsDevelopment())

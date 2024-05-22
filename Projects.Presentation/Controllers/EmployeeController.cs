@@ -8,7 +8,6 @@ using Projects.Logic.Employees.Commands.DeleteEmployee;
 using Projects.Logic.Employees.Commands.UpdateEmployee;
 using Projects.Logic.Employees.Queries.GetEmployee;
 using Projects.Logic.Employees.Queries.GetEmployeeList;
-using Projects.Presentation.Models.Auth;
 using Projects.Presentation.Models.Employees;
 
 namespace Projects.Presentation.Controllers;
@@ -65,6 +64,14 @@ public class EmployeeController(IMediator mediator, ILogger<EmployeeController> 
 
         try
         {
+            var existingUser = await userManager.FindByEmailAsync(dto.Mail);
+            
+            if (existingUser != null)
+            {
+                ModelState.AddModelError(string.Empty, "A user with this email already exists");
+                return View(dto);
+            }
+            
             var appUser = new ApplicationUser
             {
                 UserName = dto.Mail,
@@ -81,17 +88,18 @@ public class EmployeeController(IMediator mediator, ILogger<EmployeeController> 
                 }
             }
 
-            // Ensure the "Employee" role exists
-            if (!await roleManager.RoleExistsAsync(Roles.Employee))
+            // Ensure the role exists
+            if (!await roleManager.RoleExistsAsync(dto.Role))
             {
-                await roleManager.CreateAsync(new IdentityRole(Roles.Employee));
+                await roleManager.CreateAsync(new IdentityRole(dto.Role));
             }
 
-            // Assign the appUser to the "Employee" role
-            await userManager.AddToRoleAsync(appUser, Roles.Employee);
+            // Assign the appUser to the role
+            await userManager.AddToRoleAsync(appUser, dto.Role);
             
             var command = new CreateEmployeeCommand
             {
+                Id = Guid.Parse(appUser.Id),
                 FirstName = dto.FirstName,
                 MiddleName = dto.MiddleName,
                 LastName = dto.LastName,
@@ -167,6 +175,27 @@ public class EmployeeController(IMediator mediator, ILogger<EmployeeController> 
     {
         try
         {
+            var user = await userManager.FindByIdAsync(id.ToString());
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var roles = await userManager.GetRolesAsync(user);
+
+            if (roles.Any())
+            {
+                await userManager.RemoveFromRolesAsync(user, roles);
+            }
+
+            var res = await userManager.DeleteAsync(user);
+
+            if (!res.Succeeded)
+            {
+                throw new Exception("Error while deleting an employee");
+            }
+            
             var command = new DeleteEmployeeCommand { Id = id };
             await mediator.Send(command);
 
@@ -180,16 +209,34 @@ public class EmployeeController(IMediator mediator, ILogger<EmployeeController> 
     }
 
     [HttpGet]
-    public async Task<IActionResult> EmployeesJson(string term)
+    [Authorize(Roles = "Admin,Director,Manager")]
+    public async Task<IActionResult> EmployeesJson(string term, string role)
     { 
         var query = new GetEmployeeListQuery();
         var listVm = await mediator.Send(query);
 
-        if (string.IsNullOrEmpty(term))
-            return Json(listVm.Employees
-                .Select(e => new { id = e.Id, value = e.FullName }));
+        // Get all employees in role
+        var employees = new List<EmployeeLookupDto>();
 
-        return Json(listVm.Employees
+        foreach (var e in listVm.Employees)
+        {
+            var user = await userManager.FindByIdAsync(e.Id.ToString());
+
+            if (user == null) continue;
+
+            if (await userManager.IsInRoleAsync(user, role))
+            {
+                employees.Add(e);
+            }
+        }
+        
+        if (string.IsNullOrEmpty(term))
+        {
+            return Json(employees
+                .Select(e => new { id = e.Id, value = e.FullName }));
+        }
+        
+        return Json(employees
             .Where(e => e.FullName.Contains(term, StringComparison.OrdinalIgnoreCase))
             .Select(e => new { id = e.Id, value = e.FullName }));
     }

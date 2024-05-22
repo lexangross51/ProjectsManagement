@@ -1,7 +1,15 @@
-﻿@model Projects.Presentation.Models.Projects.UpdateProjectDto
+﻿@using Microsoft.AspNetCore.Identity
+@using Projects.DataAccess.Database
+@using Projects.DataAccess.Models
+@model Projects.Presentation.Models.Projects.UpdateProjectDto
+@inject UserManager<ApplicationUser> UserManager
 
 @{
     Layout = null;
+    var user = await UserManager.GetUserAsync(User);
+    var isAdmin = user != null && await UserManager.IsInRoleAsync(user, Roles.Admin);
+    var isDirector = user != null && await UserManager.IsInRoleAsync(user, Roles.Director);
+    var isManager = user != null && await UserManager.IsInRoleAsync(user, Roles.Manager);
 }
 
 <!DOCTYPE html>
@@ -19,49 +27,52 @@
         <div>
             <input type="hidden" asp-for="Id"/>
         </div>
-        <div>
-            <label asp-for="ProjectName">Project name: </label>
-            <input asp-for="ProjectName" />
-            <span asp-validation-for="ProjectName"></span>
-        </div>
-        <div>
-            <label asp-for="CompanyCustomer">Customer company: </label>
-            <input asp-for="CompanyCustomer" />
-            <span asp-validation-for="CompanyCustomer"></span>
-        </div>
-        <div>
-            <label asp-for="CompanyExecutor">Executor company: </label>
-            <input asp-for="CompanyExecutor" />
-            <span asp-validation-for="CompanyExecutor"></span>
-        </div>
-        <div>
-            <label asp-for="Priority">Priority: </label>
-            <input asp-for="Priority" />
-            <span asp-validation-for="Priority"></span>
-        </div>
-        <div>
-            <label asp-for="DateStart">Date start: </label>
-            <input type="date" asp-for="DateStart" />
-            <span asp-validation-for="DateStart"></span>
-        </div>
-        <div>
-            <label asp-for="DateEnd">Date end: </label>
-            <input type="date" asp-for="DateEnd" />
-            <span asp-validation-for="DateEnd"></span>
-        </div>
-        <div>
-            <label>Manager: </label>
-            <input type="text" id="managerName" value="@Model.Manager?.FullName"/>
-            <input type="hidden" id="managerId" asp-for="ManagerId"/>
+        
+        @if (isAdmin || isDirector)
+        {
+            <div>
+                <label asp-for="ProjectName">Project name: </label>
+                <input asp-for="ProjectName"/>
+                <span asp-validation-for="ProjectName"></span>
+            </div>
+            <div>
+                <label asp-for="CompanyCustomer">Customer company: </label>
+                <input asp-for="CompanyCustomer"/>
+                <span asp-validation-for="CompanyCustomer"></span>
+            </div>
+            <div>
+                <label asp-for="CompanyExecutor">Executor company: </label>
+                <input asp-for="CompanyExecutor"/>
+                <span asp-validation-for="CompanyExecutor"></span>
+            </div>
+            <div>
+                <label asp-for="Priority">Priority: </label>
+                <input asp-for="Priority"/>
+                <span asp-validation-for="Priority"></span>
+            </div>
+            <div>
+                <label asp-for="DateStart">Date start: </label>
+                <input type="date" asp-for="DateStart"/>
+                <span asp-validation-for="DateStart"></span>
+            </div>
+            <div>
+                <label asp-for="DateEnd">Date end: </label>
+                <input type="date" asp-for="DateEnd"/>
+                <span asp-validation-for="DateEnd"></span>
+            </div>
+            <div>
+                <label>Manager: </label>
+                <input type="text" id="managerName" value="@Model.Manager?.FullName"/>
+                <input type="hidden" id="managerId" asp-for="ManagerId"/>
 
-            <script type="text/javascript">
+                <script type="text/javascript">
                 $(document).ready(function () {
                     $('#managerName').autocomplete({
                         source: function (request, response) {
                             $.ajax({
                                 url: '/Employee/EmployeesJson/',
                                 type: 'GET',
-                                data: { term: request.term },
+                                data: { term: request.term, role: "Manager" },
                                 success: function (data) {
                                     response($.map(data, function (item) {
                                         return { label: item.value, value: item.id }
@@ -79,23 +90,28 @@
                     });
                 });
             </script>
-        </div>
+            </div>
+        }
 
-        <div>
-            <label>Executors: </label>
-            <input type="text" id="executorsNames" />
-            <input type="hidden" id="executorsId" asp-for="ExecutorsId" />
-            <ul id="selectedExecutors">
-                @if (Model.Executors != null)
-                {
-                    foreach (var e in Model.Executors)
+        @if (isAdmin || isDirector || isManager)
+        {
+            <div>
+                <label>Executors: </label>
+                <input type="text" id="executorsNames"/>
+                <input type="hidden" id="executorsId" asp-for="ExecutorsId"/>
+                <ul id="selectedExecutors">
+                    @if (Model.Executors != null)
                     {
-                        <li data-id="@e.Id"> @e.FullName <button class="remove"> X </button></li>
+                        foreach (var e in Model.Executors)
+                        {
+                            <li data-id="@e.Id">
+                                @e.FullName <button class="remove"> X </button>
+                            </li>
+                        }
                     }
-                }
-            </ul>
+                </ul>
 
-            <script type="text/javascript">
+                <script type="text/javascript">
                 $(document).ready(function () {
                     const selectedExecutors = $('#selectedExecutors');
 
@@ -104,7 +120,7 @@
                             $.ajax({
                                 url: '/Employee/EmployeesJson/',
                                 type: 'GET',
-                                data: { term: request.term },
+                                data: { term: request.term, role: "Employee" },
                                 success: function (data) {
                                     response($.map(data, function (item) {
                                         return { label: item.value, value: item.id }
@@ -135,7 +151,8 @@
                     }
                 })
             </script>
-        </div>
+            </div>
+        }
         
         <div>
             <input type="submit" value="Update" />

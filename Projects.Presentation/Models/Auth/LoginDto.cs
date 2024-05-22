@@ -10,6 +10,4 @@ public class LoginDto
     [Required]
     [DataType(DataType.Password)]
     public string Password { get; init; } = string.Empty;
-
-    public bool RememberMe { get; init; }
 }

@@ -1,9 +1,30 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Projects.DataAccess.Database
+@using Projects.DataAccess.Models
+@inject UserManager<ApplicationUser> UserManager
+@{
     ViewData["Title"] = "Home Page";
+    var user = await UserManager.GetUserAsync(User);
+    bool isAdmin = user != null && await UserManager.IsInRoleAsync(user, Roles.Admin);
+    bool isDirector = user != null && await UserManager.IsInRoleAsync(user, Roles.Director);
 }
 
-<div class="text-center">
-    <button type="button" onclick="location.href='@Url.Action("Employees", "Employee")'">Employees</button>
-    <button type="button" onclick="location.href='@Url.Action("Projects", "Project")'">Projects</button>
-    <button type="button" onclick="location.href='@Url.Action("Tasks", "Task")'">Tasks</button>
-</div>
+@if (User.Identity is { IsAuthenticated: true })
+{
+    <div class="text-center">
+        @if (isAdmin || isDirector)
+        { 
+            <button type="button" onclick="location.href='@Url.Action("Employees", "Employee")'">Employees</button>
+        }
+        
+        <button type="button" onclick="location.href='@Url.Action("Projects", "Project")'">Projects</button>
+        <button type="button" onclick="location.href='@Url.Action("Tasks", "Task")'">Tasks</button>
+    </div>
+
+    <form id="logoutForm" asp-controller="Auth" asp-action="Logout" method="post">
+        <button type="submit">Logout</button>
+    </form>
+    
+    <p>Hello, @User.Identity.Name</p>
+}

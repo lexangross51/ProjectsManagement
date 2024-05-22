@@ -10,6 +10,7 @@ public class CreateEmployeeCommandHandler(IEmployeeRepository repos) : IRequestH
     {
         var employee = new Employee
         {
+            Id = request.Id,
             FirstName = request.FirstName,
             MiddleName = request.MiddleName,
             LastName = request.LastName,

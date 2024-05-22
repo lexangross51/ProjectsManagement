@@ -9,19 +9,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e857d069-5a3d-41ef-a638-a8bb98906db5" name="Changes" comment="Successfully added admin">
-      <change afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/AuthController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Auth/Login.cshtml" afterDir="false" />
+    <list default="true" id="e857d069-5a3d-41ef-a638-a8bb98906db5" name="Changes" comment="Migration for adding asp.net identity">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.DataAccess/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.DataAccess/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Extensions/DiExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Extensions/DiExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.DataAccess/Models/Employee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.DataAccess/Models/Employee.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.DataAccess/Storage/ProjectsStorage/ProjectRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.DataAccess/Storage/ProjectsStorage/ProjectRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Logic/Employees/Commands/CreateEmployee/CreateEmployeeCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Employees/Commands/CreateEmployee/CreateEmployeeCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Logic/Employees/Commands/CreateEmployee/CreateEmployeeCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Employees/Commands/CreateEmployee/CreateEmployeeCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Logic/Projects.Logic.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Projects.Logic.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Logic/Projects/Queries/GetProjectList/GetProjectListQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Projects/Queries/GetProjectList/GetProjectListQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Logic/Projects/Queries/GetProjectList/GetProjectListQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Projects/Queries/GetProjectList/GetProjectListQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Logic/Projects/Queries/GetProjectList/ProjectLookupDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Projects/Queries/GetProjectList/ProjectLookupDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Logic/Tasks/Queries/GetTaskList/TaskLookupDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Tasks/Queries/GetTaskList/TaskLookupDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Controllers/EmployeeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/EmployeeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Controllers/ProjectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/ProjectController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projects.Presentation/Extensions/WebApplicationExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Extensions/WebApplicationExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projects.Presentation/Models/Auth/LoginDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Models/Auth/LoginDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Models/Auth/Roles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Models/Auth/Roles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Models/Auth/Roles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.DataAccess/Models/Roles.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projects.Presentation/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-wal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Auth/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Auth/Login.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/CreateEmployee.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/CreateEmployee.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Project/ProjectDetails.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Project/ProjectDetails.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Project/UpdateProject.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Project/UpdateProject.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep3.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep3.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep4.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep4.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +91,7 @@
     ".NET Launch Settings Profile.Projects.Presentation: IIS Express.executor": "Debug",
     ".NET Launch Settings Profile.Projects.Presentation: http.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "XThreadsFramesViewSplitterKey": "0.35669783",
     "git-widget-placeholder": "dev-roles",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -88,6 +102,10 @@
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver",
+      "sqlite"
+    ],
     "rider.external.source.directories": [
       "C:\\Users\\gross.2019\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
       "C:\\Users\\gross.2019\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
@@ -309,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716360648107</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Migration for adding asp.net identity">
+      <option name="closed" value="true" />
+      <created>1716360766595</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1716360766595</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,26 +376,10 @@
     <MESSAGE value="Changes in db" />
     <MESSAGE value="try to add roles" />
     <MESSAGE value="Successfully added admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="Successfully added admin" />
+    <MESSAGE value="Migration for adding asp.net identity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Migration for adding asp.net identity" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Projects.Presentation/Extensions/WebApplicationExtensions.cs</url>
-          <line>21</line>
-          <properties documentPath="E:\Gross\Projects\ProjectsManagement\Projects.Presentation\Extensions\WebApplicationExtensions.cs" containingFunctionPresentation="Method 'SeedRolesAndAdmin'">
-            <startOffsets>
-              <option value="710" />
-            </startOffsets>
-            <endOffsets>
-              <option value="776" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#Projects.Presentation.Models.Projects.CreateProjectStep5Dto" memberName="Files" />

@@ -10,7 +10,7 @@ public class ProjectRepository(AppDbContext context) : IProjectRepository
         => await context.Projects.SingleOrDefaultAsync(p => p.Id == id, token);
 
     public async Task<IQueryable<Project>?> GetAllAsync(CancellationToken token)
-        => await Task.FromResult(context.Projects);
+        => await Task.FromResult(context.Projects.Include(p => p.Executors));
 
     public async Task<Project?> GetWithExecutorsAsync(Guid id, CancellationToken token)
         => await context.Projects.Include(p => p.Executors)
