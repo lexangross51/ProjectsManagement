@@ -1,7 +1,17 @@
-﻿@model Projects.Presentation.Models.Employees.CreateEmployeeDto
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Projects.DataAccess.Database
+@using Projects.Presentation.Models.Auth
+@model Projects.Presentation.Models.Employees.CreateEmployeeDto
+@inject UserManager<ApplicationUser> UserManager;
 
 @{
     Layout = null;
+}
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+    bool isAdmin = user != null && await UserManager.IsInRoleAsync(user, "Admin");
 }
 
 <!DOCTYPE html>
@@ -33,6 +43,26 @@
         <input asp-for="Mail"/>
         <span asp-validation-for="Mail"></span>
     </div>
+    <div>
+        <label>Password</label>
+        <input asp-for="Password"/>
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <label>Confirm password</label>
+        <input asp-for="ConfirmPassword"/>
+        <span asp-validation-for="ConfirmPassword"></span>
+    </div>
+    
+    @if (isAdmin)
+    {
+        <div>
+            <label>Role</label>
+            <select asp-for="Role" asp-items="@(new SelectList(new[] { Roles.Director, Roles.Manager, Roles.Employee }))">
+            </select>
+            <span asp-validation-for="Role"></span>
+        </div>
+    }
 
     <div>
         <input type="submit" value="Add"/>

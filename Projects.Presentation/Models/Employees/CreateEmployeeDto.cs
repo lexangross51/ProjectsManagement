@@ -15,4 +15,14 @@ public class CreateEmployeeDto
 
     [EmailAddress]
     public string Mail { get; init; } = string.Empty;
+
+    [DataType(DataType.Password)] 
+    public string Password { get; init; } = string.Empty;
+
+    [DataType(DataType.Password)]
+    [Display(Name = "Confirm password")]
+    [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+    public string ConfirmPassword { get; init; } = string.Empty;
+
+    public string Role { get; init; } = string.Empty;
 }

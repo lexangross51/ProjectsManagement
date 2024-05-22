@@ -1,15 +1,22 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Projects.DataAccess.Database;
 using Projects.Logic.Employees.Commands.CreateEmployee;
 using Projects.Logic.Employees.Commands.DeleteEmployee;
 using Projects.Logic.Employees.Commands.UpdateEmployee;
 using Projects.Logic.Employees.Queries.GetEmployee;
 using Projects.Logic.Employees.Queries.GetEmployeeList;
+using Projects.Presentation.Models.Auth;
 using Projects.Presentation.Models.Employees;
 
 namespace Projects.Presentation.Controllers;
 
-public class EmployeeController(IMediator mediator, ILogger<EmployeeController> logger) : Controller
+[Authorize(Roles = "Admin,Director")]
+public class EmployeeController(IMediator mediator, ILogger<EmployeeController> logger,
+    UserManager<ApplicationUser> userManager,
+    RoleManager<IdentityRole> roleManager) : Controller
 {
     [HttpGet]
     public async Task<IActionResult> Employees()
@@ -58,6 +65,31 @@ public class EmployeeController(IMediator mediator, ILogger<EmployeeController> 
 
         try
         {
+            var appUser = new ApplicationUser
+            {
+                UserName = dto.Mail,
+                Email = dto.Mail
+            };
+
+            var result = await userManager.CreateAsync(appUser, dto.Password);
+
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+
+            // Ensure the "Employee" role exists
+            if (!await roleManager.RoleExistsAsync(Roles.Employee))
+            {
+                await roleManager.CreateAsync(new IdentityRole(Roles.Employee));
+            }
+
+            // Assign the appUser to the "Employee" role
+            await userManager.AddToRoleAsync(appUser, Roles.Employee);
+            
             var command = new CreateEmployeeCommand
             {
                 FirstName = dto.FirstName,

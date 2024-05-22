@@ -9,15 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e857d069-5a3d-41ef-a638-a8bb98906db5" name="Changes" comment="Added data">
+    <list default="true" id="e857d069-5a3d-41ef-a638-a8bb98906db5" name="Changes" comment="Changes in db">
+      <change afterPath="$PROJECT_DIR$/Projects.DataAccess/Database/ApplicationUser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projects.Presentation/Extensions/DiExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projects.Presentation/Extensions/WebApplicationExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projects.Presentation/Models/Auth/LoginDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projects.Presentation/Models/Auth/Roles.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.DataAccess/Storage/ProjectsStorage/ProjectRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.DataAccess/Storage/ProjectsStorage/ProjectRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Logic/Tasks/Queries/FilterTasks/Filters/TaskStatusFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Tasks/Queries/FilterTasks/Filters/TaskStatusFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Controllers/TaskController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/TaskController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-wal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Task/Tasks.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Task/Tasks.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.DataAccess/Database/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.DataAccess/Database/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.DataAccess/Projects.DataAccess.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.DataAccess/Projects.DataAccess.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Controllers/EmployeeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/EmployeeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Models/Employees/CreateEmployeeDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Models/Employees/CreateEmployeeDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Projects.Presentation.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Projects.Presentation.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/CreateEmployee.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/CreateEmployee.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="dev-tasks" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,14 +55,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/88ec3bc3f37e76fbcc932a25f9f0c1c29fe2b343/src/Mvc/Mvc.Core/src/Infrastructure/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/88ec3bc3f37e76fbcc932a25f9f0c1c29fe2b343/src/Mvc/Mvc.Core/src/Infrastructure/ControllerActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/88ec3bc3f37e76fbcc932a25f9f0c1c29fe2b343/src/Mvc/Mvc/src/MvcServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Task.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/78c860a4a0696d27b2942ef6996b8ceec84aec6b56a4221bd8ce81cc42954d/RequestHandlerWrapper.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Gross/Projects/ProjectsManagement/Projects.DataAccess/Migrations/AppDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Gross/Projects/ProjectsManagement/Projects.DataAccess/Migrations/AppDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Gross/Projects/ProjectsManagement/Projects.DataAccess/Migrations/AppDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Gross/Projects/ProjectsManagement/Projects.DataAccess/Models/Tasks/ProjectTask.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Gross/Projects/ProjectsManagement/Projects.Presentation/Models/Employees/CreateEmployeeDto.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Gross/Projects/ProjectsManagement/Projects.Presentation/Models/Employees/CreateEmployeeDto.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Gross/Projects/ProjectsManagement/Projects.Presentation/Views/Shared/_CreateProjectStep3.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Gross/Projects/ProjectsManagement/Projects.DataAccess/obj/Debug/net8.0/Projects.DataAccess.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -69,28 +70,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.Projects.Presentation: IIS Express.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Launch Settings Profile.Projects.Presentation: http.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev-tasks&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.Projects.Presentation: IIS Express.executor": "Debug",
+    ".NET Launch Settings Profile.Projects.Presentation: http.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dev-roles",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\gross.2019\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\gross.2019\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\gross.2019\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\gross.2019\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\gross.2019\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\gross.2019\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Projects.Presentation: http">
     <configuration name="Projects.Presentation: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Projects.Presentation/Projects.Presentation.csproj" />
@@ -281,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716301348887</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Changes in db">
+      <option name="closed" value="true" />
+      <created>1716352054120</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1716352054120</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,9 +328,40 @@
     <MESSAGE value="Added new entity ProjectTask" />
     <MESSAGE value="Finally added tasks" />
     <MESSAGE value="Added data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added data" />
+    <MESSAGE value="Changes in db" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes in db" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Projects.Presentation/Extensions/WebApplicationExtensions.cs</url>
+          <line>9</line>
+          <properties documentPath="E:\Gross\Projects\ProjectsManagement\Projects.Presentation\Extensions\WebApplicationExtensions.cs" containingFunctionPresentation="Method 'SeedRolesAndAdmin'">
+            <startOffsets>
+              <option value="364" />
+            </startOffsets>
+            <endOffsets>
+              <option value="365" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Projects.Presentation/Program.cs</url>
+          <line>25</line>
+          <properties documentPath="E:\Gross\Projects\ProjectsManagement\Projects.Presentation\Program.cs" containingFunctionPresentation="">
+            <startOffsets>
+              <option value="807" />
+            </startOffsets>
+            <endOffsets>
+              <option value="868" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#Projects.Presentation.Models.Projects.CreateProjectStep5Dto" memberName="Files" />

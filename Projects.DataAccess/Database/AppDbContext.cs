@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Projects.DataAccess.Database.EntityConfigurations;
 using Projects.DataAccess.Models;
 using Projects.DataAccess.Models.Tasks;
 
 namespace Projects.DataAccess.Database;
 
-public sealed class AppDbContext : DbContext
+public sealed class AppDbContext : IdentityDbContext<ApplicationUser>
 {
     public DbSet<Employee> Employees { get; set; } = default!;
 
