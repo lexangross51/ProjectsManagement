@@ -2786,19 +2786,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lexan\\.nuget\\packages\\": {}
+    "C:\\Users\\gross.2019\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lexan\\source\\repos\\ProjectsManagement\\Projects.Presentation\\Projects.Presentation.csproj",
+      "projectUniqueName": "E:\\Gross\\Projects\\ProjectsManagement\\Projects.Presentation\\Projects.Presentation.csproj",
       "projectName": "Projects.Presentation",
-      "projectPath": "C:\\Users\\lexan\\source\\repos\\ProjectsManagement\\Projects.Presentation\\Projects.Presentation.csproj",
-      "packagesPath": "C:\\Users\\lexan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lexan\\source\\repos\\ProjectsManagement\\Projects.Presentation\\obj\\",
+      "projectPath": "E:\\Gross\\Projects\\ProjectsManagement\\Projects.Presentation\\Projects.Presentation.csproj",
+      "packagesPath": "C:\\Users\\gross.2019\\.nuget\\packages\\",
+      "outputPath": "E:\\Gross\\Projects\\ProjectsManagement\\Projects.Presentation\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\lexan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gross.2019\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2806,15 +2811,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\lexan\\source\\repos\\ProjectsManagement\\Projects.Logic\\Projects.Logic.csproj": {
-              "projectPath": "C:\\Users\\lexan\\source\\repos\\ProjectsManagement\\Projects.Logic\\Projects.Logic.csproj"
+            "E:\\Gross\\Projects\\ProjectsManagement\\Projects.Logic\\Projects.Logic.csproj": {
+              "projectPath": "E:\\Gross\\Projects\\ProjectsManagement\\Projects.Logic\\Projects.Logic.csproj"
             }
           }
         }
@@ -2823,11 +2827,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -2870,7 +2869,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
