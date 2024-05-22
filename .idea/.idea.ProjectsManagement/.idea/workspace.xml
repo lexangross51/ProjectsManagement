@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e857d069-5a3d-41ef-a638-a8bb98906db5" name="Changes" comment="try to add roles">
+    <list default="true" id="e857d069-5a3d-41ef-a638-a8bb98906db5" name="Changes" comment="Successfully added admin">
       <change afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/AuthController.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Auth/Login.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" afterDir="false" />
@@ -60,6 +60,7 @@
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Task.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/78c860a4a0696d27b2942ef6996b8ceec84aec6b56a4221bd8ce81cc42954d/RequestHandlerWrapper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Gross/Projects/ProjectsManagement/Projects.DataAccess/Database/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Gross/Projects/ProjectsManagement/Projects.DataAccess/Migrations/AppDbContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Gross/Projects/ProjectsManagement/Projects.DataAccess/obj/Debug/net8.0/Projects.DataAccess.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -300,7 +301,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716357803393</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Successfully added admin">
+      <option name="closed" value="true" />
+      <created>1716360648107</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1716360648107</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,36 +349,24 @@
     <MESSAGE value="Added data" />
     <MESSAGE value="Changes in db" />
     <MESSAGE value="try to add roles" />
-    <option name="LAST_COMMIT_MESSAGE" value="try to add roles" />
+    <MESSAGE value="Successfully added admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Successfully added admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Projects.Presentation/Controllers/AuthController.cs</url>
-          <line>14</line>
-          <properties documentPath="E:\Gross\Projects\ProjectsManagement\Projects.Presentation\Controllers\AuthController.cs" containingFunctionPresentation="Method 'Login'">
-            <startOffsets>
-              <option value="417" />
-            </startOffsets>
-            <endOffsets>
-              <option value="418" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Projects.Presentation/Extensions/WebApplicationExtensions.cs</url>
           <line>21</line>
           <properties documentPath="E:\Gross\Projects\ProjectsManagement\Projects.Presentation\Extensions\WebApplicationExtensions.cs" containingFunctionPresentation="Method 'SeedRolesAndAdmin'">
             <startOffsets>
-              <option value="697" />
+              <option value="710" />
             </startOffsets>
             <endOffsets>
-              <option value="763" />
+              <option value="776" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
