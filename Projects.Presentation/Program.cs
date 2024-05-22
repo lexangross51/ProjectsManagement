@@ -13,6 +13,7 @@ builder.Services
     .AddLogic()
     .AddMemoryCache()
     .AddIdentityUser()
+    .ConfigureApplicationCookie(options => options.LoginPath = "/Auth/Login")
     .AddControllersWithViews();
 
 // builder.Services.AddAuthorizationBuilder()
@@ -43,6 +44,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}");
+    pattern: "{controller=Auth}/{action=Login}/{id?}");
 
 app.Run();

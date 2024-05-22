@@ -8,7 +8,7 @@ public static class WebApplicationExtensions
 {
     public static async Task SeedRolesAndAdmin(this WebApplication app, RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
     {
-        var roleNames = new[] { Roles.Director, Roles.Manager, Roles.Employee };
+        var roleNames = new[] { Roles.Admin, Roles.Director, Roles.Manager, Roles.Employee };
 
         foreach (var role in roleNames)
         {
@@ -30,7 +30,8 @@ public static class WebApplicationExtensions
                 Email = "admin@gmail.com",
             };
 
-            await userManager.CreateAsync(admin, "admin123");
+            var res = await userManager.CreateAsync(admin, "Admin123");
+            await userManager.AddToRoleAsync(admin, Roles.Admin);
         }
     }
 }

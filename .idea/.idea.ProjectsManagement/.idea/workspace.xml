@@ -9,20 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e857d069-5a3d-41ef-a638-a8bb98906db5" name="Changes" comment="Changes in db">
-      <change afterPath="$PROJECT_DIR$/Projects.DataAccess/Database/ApplicationUser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projects.Presentation/Extensions/DiExtension.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projects.Presentation/Extensions/WebApplicationExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projects.Presentation/Models/Auth/LoginDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projects.Presentation/Models/Auth/Roles.cs" afterDir="false" />
+    <list default="true" id="e857d069-5a3d-41ef-a638-a8bb98906db5" name="Changes" comment="try to add roles">
+      <change afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/AuthController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Auth/Login.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.DataAccess/Database/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.DataAccess/Database/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.DataAccess/Projects.DataAccess.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.DataAccess/Projects.DataAccess.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Controllers/EmployeeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/EmployeeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Models/Employees/CreateEmployeeDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Models/Employees/CreateEmployeeDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.DataAccess/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.DataAccess/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Extensions/DiExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Extensions/DiExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Extensions/WebApplicationExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Extensions/WebApplicationExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Models/Auth/LoginDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Models/Auth/LoginDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Models/Auth/Roles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Models/Auth/Roles.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projects.Presentation/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Projects.Presentation.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Projects.Presentation.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/CreateEmployee.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/CreateEmployee.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-shm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-wal" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,11 +52,14 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/88ec3bc3f37e76fbcc932a25f9f0c1c29fe2b343/src/Identity/Core/src/SignInManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/88ec3bc3f37e76fbcc932a25f9f0c1c29fe2b343/src/Mvc/Mvc.Core/src/Infrastructure/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/88ec3bc3f37e76fbcc932a25f9f0c1c29fe2b343/src/Mvc/Mvc.Core/src/Infrastructure/ControllerActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/88ec3bc3f37e76fbcc932a25f9f0c1c29fe2b343/src/Mvc/Mvc/src/MvcServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/ServiceCollection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Task.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/78c860a4a0696d27b2942ef6996b8ceec84aec6b56a4221bd8ce81cc42954d/RequestHandlerWrapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Gross/Projects/ProjectsManagement/Projects.DataAccess/Database/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Gross/Projects/ProjectsManagement/Projects.DataAccess/obj/Debug/net8.0/Projects.DataAccess.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -290,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716352054120</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="try to add roles">
+      <option name="closed" value="true" />
+      <created>1716357803393</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1716357803393</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,36 +339,37 @@
     <MESSAGE value="Finally added tasks" />
     <MESSAGE value="Added data" />
     <MESSAGE value="Changes in db" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes in db" />
+    <MESSAGE value="try to add roles" />
+    <option name="LAST_COMMIT_MESSAGE" value="try to add roles" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Projects.Presentation/Extensions/WebApplicationExtensions.cs</url>
-          <line>9</line>
-          <properties documentPath="E:\Gross\Projects\ProjectsManagement\Projects.Presentation\Extensions\WebApplicationExtensions.cs" containingFunctionPresentation="Method 'SeedRolesAndAdmin'">
+          <url>file://$PROJECT_DIR$/Projects.Presentation/Controllers/AuthController.cs</url>
+          <line>14</line>
+          <properties documentPath="E:\Gross\Projects\ProjectsManagement\Projects.Presentation\Controllers\AuthController.cs" containingFunctionPresentation="Method 'Login'">
             <startOffsets>
-              <option value="364" />
+              <option value="417" />
             </startOffsets>
             <endOffsets>
-              <option value="365" />
+              <option value="418" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Projects.Presentation/Program.cs</url>
-          <line>25</line>
-          <properties documentPath="E:\Gross\Projects\ProjectsManagement\Projects.Presentation\Program.cs" containingFunctionPresentation="">
+          <url>file://$PROJECT_DIR$/Projects.Presentation/Extensions/WebApplicationExtensions.cs</url>
+          <line>21</line>
+          <properties documentPath="E:\Gross\Projects\ProjectsManagement\Projects.Presentation\Extensions\WebApplicationExtensions.cs" containingFunctionPresentation="Method 'SeedRolesAndAdmin'">
             <startOffsets>
-              <option value="807" />
+              <option value="697" />
             </startOffsets>
             <endOffsets>
-              <option value="868" />
+              <option value="763" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
