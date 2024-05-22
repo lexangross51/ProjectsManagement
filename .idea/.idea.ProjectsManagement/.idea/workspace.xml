@@ -9,26 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e857d069-5a3d-41ef-a638-a8bb98906db5" name="Changes" comment="db">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/shelf/Uncommitted_changes_before_Update_at_20_05_2024_23_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/shelf/Uncommitted_changes_before_Update_at_20_05_2024_23_32__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Logic/Projects.Logic.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Projects.Logic.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Logic/Projects/Queries/GetProjectList/GetProjectListQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Projects/Queries/GetProjectList/GetProjectListQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Logic/Tasks/Queries/GetTaskList/GetTaskListQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Tasks/Queries/GetTaskList/GetTaskListQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Logic/Tasks/Queries/GetTaskList/GetTaskQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Tasks/Queries/GetTaskList/GetTaskQueryHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Controllers/EmployeeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/EmployeeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Controllers/ProjectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/ProjectController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Controllers/TaskController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/TaskController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db" afterDir="false" />
+    <list default="true" id="e857d069-5a3d-41ef-a638-a8bb98906db5" name="Changes" comment="Finished tasks">
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-shm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-wal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Project/ProjectDetails.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Project/ProjectDetails.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Project/UpdateProject.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Project/UpdateProject.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Task/CreateTask.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Task/CreateTask.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Task/TaskDetails.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Task/TaskDetails.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Task/Tasks.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Task/Tasks.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Task/UpdateTask.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Task/UpdateTask.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +43,7 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/lexan/source/repos/ProjectsManagement/Projects.Presentation/Views/Task/CreateTask.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -344,7 +328,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716390090953</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Finished tasks">
+      <option name="closed" value="true" />
+      <created>1716396802341</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1716396802341</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,24 +380,12 @@
     <MESSAGE value="Migration for adding asp.net identity" />
     <MESSAGE value="It remains to configure access to tasks" />
     <MESSAGE value="db" />
-    <option name="LAST_COMMIT_MESSAGE" value="db" />
+    <MESSAGE value="Finished tasks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished tasks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Projects.Presentation/Controllers/TaskController.cs</url>
-          <line>227</line>
-          <properties documentPath="C:\Users\lexan\source\repos\ProjectsManagement\Projects.Presentation\Controllers\TaskController.cs" containingFunctionPresentation="Method 'UpdateTask'">
-            <startOffsets>
-              <option value="7204" />
-            </startOffsets>
-            <endOffsets>
-              <option value="7205" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Projects.Presentation/Controllers/ProjectController.cs</url>
           <line>274</line>
