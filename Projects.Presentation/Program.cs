@@ -16,10 +16,6 @@ builder.Services
     .ConfigureApplicationCookie(options => options.LoginPath = "/Auth/Login")
     .AddControllersWithViews();
 
-// builder.Services.AddAuthorizationBuilder()
-//     .AddPolicy("RequireManagerRole", policy => policy.RequireRole(Roles.Manager))
-//     .AddPolicy("RequireEmployeeRole", policy => policy.RequireRole(Roles.Employee));
-
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Projects.DataAccess.Database;
 using Projects.DataAccess.Models;
-using Projects.Presentation.Models.Auth;
 
 namespace Projects.Presentation.Extensions;
 

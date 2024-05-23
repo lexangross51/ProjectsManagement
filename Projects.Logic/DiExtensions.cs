@@ -6,12 +6,7 @@ public static class DiExtensions
 {
     public static IServiceCollection AddLogic(this IServiceCollection services)
     {
-        var assembly = typeof(DiExtensions).Assembly;
-        
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
-        // services.AddValidatorsFromAssembly(assembly);
-        // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-        
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(DiExtensions).Assembly));
         return services;
     }
 }
