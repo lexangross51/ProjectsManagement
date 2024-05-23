@@ -9,33 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e857d069-5a3d-41ef-a638-a8bb98906db5" name="Changes" comment="Little change">
-      <change afterPath="$PROJECT_DIR$/Projects.Presentation/wwwroot/css/styles.css" afterDir="false" />
+    <list default="true" id="e857d069-5a3d-41ef-a638-a8bb98906db5" name="Changes" comment="change db data">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Logic/Projects/Queries/GetProjectList/GetProjectListQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Logic/Projects/Queries/GetProjectList/GetProjectListQueryHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/AuthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Controllers/EmployeeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Controllers/EmployeeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Auth/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Auth/Login.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/CreateEmployee.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/CreateEmployee.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/EmployeeDetails.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/EmployeeDetails.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/Employees.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/Employees.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/UpdateEmployee.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Employee/UpdateEmployee.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Home/Privacy.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Project/ProjectDetails.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Project/ProjectDetails.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Project/Projects.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Project/Projects.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Project/UpdateProject.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Project/UpdateProject.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep1.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep1.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep2.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep2.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep3.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep3.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep4.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep4.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep5.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_CreateProjectStep5.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_TaskTableWithDelete.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Shared/_TaskTableWithDelete.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Task/CreateTask.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Task/CreateTask.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Task/TaskDetails.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Task/TaskDetails.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Task/Tasks.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Task/Tasks.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Task/UpdateTask.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Task/UpdateTask.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,34 +73,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Projects.Presentation: IIS Express.executor": "Debug",
-    ".NET Launch Settings Profile.Projects.Presentation: http.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "XThreadsFramesViewSplitterKey": "0.35669783",
-    "git-widget-placeholder": "dev-styles",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Projects.Presentation: IIS Express.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.Projects.Presentation: http.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.35669783&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev-styles&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlserver",
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver&quot;,
+      &quot;sqlite&quot;
     ],
-    "rider.external.source.directories": [
-      "C:\\Users\\gross.2019\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\gross.2019\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\gross.2019\\AppData\\Local\\Symbols\\src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\gross.2019\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\gross.2019\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\gross.2019\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Projects.Presentation: http">
     <configuration name="Projects.Presentation: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Projects.Presentation/Projects.Presentation.csproj" />
@@ -388,7 +363,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716438963929</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="change db data">
+      <option name="closed" value="true" />
+      <created>1716464988380</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1716464988380</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,7 +417,8 @@
     <MESSAGE value="db" />
     <MESSAGE value="Finished tasks" />
     <MESSAGE value="Little change" />
-    <option name="LAST_COMMIT_MESSAGE" value="Little change" />
+    <MESSAGE value="change db data" />
+    <option name="LAST_COMMIT_MESSAGE" value="change db data" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
