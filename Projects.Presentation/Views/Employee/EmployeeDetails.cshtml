@@ -9,78 +9,92 @@
 <html lang="en">
 <head>
     <title>Employee details</title>
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css"/>
 </head>
 <body>
-<h2>Information</h2>
-<p>
-    <strong>First name: </strong>@Model.FirstName
-</p>
-<p>
-    <strong>Middle name: </strong>@Model.MiddleName
-</p>
-<p>
-    <strong>Last name: </strong>@Model.LastName
-</p>
+<div class="box-container">
+    <h1>Information</h1>
+    <p>
+        <strong>First name: </strong>@Model.FirstName
+    </p>
+    <p>
+        <strong>Middle name: </strong>@Model.MiddleName
+    </p>
+    <p>
+        <strong>Last name: </strong>@Model.LastName
+    </p>
 
-<p>
-    <strong>Mail: </strong>@Model.Mail
-</p>
+    <p>
+        <strong>Mail: </strong>@Model.Mail
+    </p>
 
-@if (Model.Projects != null && Model.Projects.Any())
-{
-    <h2>Projects</h2>
-
-    <ul>
-        @foreach (var p in Model.Projects)
-        {
-            <li>@p.ProjectName</li>
-        }
-    </ul>
-}
-
-@if (Model.ManagedProjects != null && Model.ManagedProjects.Any())
-{
-    <h2>Managed projects</h2>
-
-    <ul>
-        @foreach (var p in Model.ManagedProjects)
-        {
-            <li>@p.ProjectName</li>
-        }
-    </ul>
-}
-
-@if (Model.CreatedTasks != null && Model.CreatedTasks.Any())
-{
-<h2>Created tasks</h2>
-
-<ul>
-    @foreach (var t in Model.CreatedTasks)
+    @if (Model.Projects != null && Model.Projects.Any())
     {
-    <li>@t.TaskName</li>
+        <h2>Projects</h2>
+
+        <div class="section">
+            <ul class="custom-list">
+                @foreach (var p in Model.Projects)
+                { 
+                    <li>@p.ProjectName</li>
+                }
+            </ul>
+        </div>
     }
-</ul>
-}
 
-@if (Model.Tasks != null && Model.Tasks.Any())
-{
-<h2>Performed tasks</h2>
-
-<ul>
-    @foreach (var t in Model.Tasks)
+    @if (Model.ManagedProjects != null && Model.ManagedProjects.Any())
     {
-    <li>@t.TaskName</li>
-    }
-</ul>
-}
+        <h2>Managed projects</h2>
 
-<button type="button" onclick="location.href='@Url.Action("Employees", "Employee")'">Employee list</button>
-@using (Html.BeginForm("DeleteEmployee", "Employee", new { id = Model.Id }, FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    <button type="submit" onclick="return confirm('Are you sure you want to delete this employee?')">Delete</button>
-}
-<button type="button" onclick="location.href='@Url.Action("UpdateEmployee", "Employee", new {id = Model.Id})'">Edit</button>
+        <div class="section">
+            <ul class="custom-list">
+                @foreach (var p in Model.ManagedProjects)
+                {
+                    <li>@p.ProjectName</li>
+                }
+            </ul>
+        </div>
+    }
+
+    @if (Model.CreatedTasks != null && Model.CreatedTasks.Any())
+    {
+        <h2>Created tasks</h2>
+        
+        <div class="section">
+            <ul class="custom-list">
+                @foreach (var t in Model.CreatedTasks)
+                {
+                    <li>@t.TaskName</li>
+                }
+            </ul>
+        </div>
+    }
+
+    @if (Model.Tasks != null && Model.Tasks.Any())
+    {
+        <h2>Performed tasks</h2>
+        
+        <div class="section">
+            <ul class="custom-list">
+                @foreach (var t in Model.Tasks)
+                {
+                    <li>@t.TaskName</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <div class="button-container">
+        <button type="button" class="base-button" onclick="location.href='@Url.Action("Employees", "Employee")'">Employee list</button>
+        <button type="button" class="base-button" onclick="location.href='@Url.Action("UpdateEmployee", "Employee", new { id = Model.Id })'">Edit</button>
+
+        @using (Html.BeginForm("DeleteEmployee", "Employee", new { id = Model.Id }, FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <button type="submit" class="base-button" onclick="return confirm('Are you sure you want to delete this employee?')">Delete</button>
+        }
+    </div>
+</div>
 
 </body>
 </html>

@@ -1,17 +1,20 @@
 ﻿@model Projects.Presentation.Models.Projects.CreateProjectStep4Dto
 
-<form asp-action="CreateProjectStep4" asp-controller="Project" method="post">
-    @Html.AntiForgeryToken()    
-    <div>
-        <label>Executors: </label>
-        <input type="text" id="executorsNames"/>
-        <input type="hidden" id="executorsId" asp-for="ExecutorsId"/>
-        <ul id="selectedExecutors"></ul>
+<link rel="stylesheet" type="text/css" href="~/css/styles.css"/>
 
-        <script type="text/javascript">
+<div class="update-container">
+    <form asp-action="CreateProjectStep4" asp-controller="Project" method="post">
+        @Html.AntiForgeryToken()
+        <div>
+            <label class="update-label">Executors: </label>
+            <input type="text" id="executorsNames" class="update-input"/>
+            <input type="hidden" id="executorsId" asp-for="ExecutorsId"/>
+            <ul id="selectedExecutors" class="custom-list"></ul>
+
+            <script type="text/javascript">
                 $(document).ready(function () {
                     const selectedExecutors = $('#selectedExecutors');
-    
+
                     $('#executorsNames').autocomplete({
                         source: function (request, response){
                             $.ajax({
@@ -26,32 +29,33 @@
                             });
                         },
                         select: function (event, ui) {
-                            selectedExecutors.append('<li data-id="' + ui.item.value + '">' + ui.item.label + ' <button class="remove"> X </button></li>');
+                            selectedExecutors.append('<li data-id="' + ui.item.value + '">' + ui.item.label + ' <button class="base-button remove-button"> X </button></li>');
                             updateSelectedExecutorsList();
                             return false;
                         }
                     }).on('mousedown', function () {
                         $(this).autocomplete("search", " ");
                     })
-    
-                    selectedExecutors.on("click", ".remove", function (){
+
+                    selectedExecutors.on("click", ".remove-button", function (){
                         $(this).parent().remove();
                         updateSelectedExecutorsList();
                     })
-    
+
                     function updateSelectedExecutorsList(){
                         const selectedExecutors = $("#selectedExecutors li").map(function () {
                             return $(this).data('id');
                         }).get().join(",");
-    
+
                         $('#executorsId').val(selectedExecutors);
                     }
-    
+
                 })
             </script>
-    </div>
+        </div>
 
-    <div>
-        <input type="submit" value="Next"/>
-    </div>
-</form>
+        <div>
+            <input type="submit" value="Next"/>
+        </div>
+    </form>
+</div>

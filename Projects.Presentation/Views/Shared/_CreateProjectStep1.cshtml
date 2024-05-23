@@ -1,29 +1,33 @@
 ﻿@model Projects.Presentation.Models.Projects.CreateProjectStep1Dto
 
-<form asp-action="CreateProjectStep1" asp-controller="Project" method="post">
-    @Html.AntiForgeryToken()
-    <div>
-        <label asp-for="ProjectName">Project name: </label>
-        <input asp-for="ProjectName"/>
-        <span asp-validation-for="ProjectName"></span>
-    </div>
-    <div>
-        <label asp-for="Priority">Priority: </label>
-        <input asp-for="Priority"/>
-        <span asp-validation-for="Priority"></span>
-    </div>
-    <div>
-        <label asp-for="DateStart">Date start: </label>
-        <input type="date" asp-for="DateStart"/>
-        <span asp-validation-for="DateStart"></span>
-    </div>
-    <div>
-        <label asp-for="DateEnd">Date end: </label>
-        <input type="date" asp-for="DateEnd"/>
-        <span asp-validation-for="DateEnd"></span>
-    </div>
+<link rel="stylesheet" type="text/css" href="~/css/styles.css"/>
 
-    <div>
-        <input type="submit" value="Next"/>
-    </div>
-</form>
+<div class="update-container">
+    <form asp-action="CreateProjectStep1" asp-controller="Project" method="post">
+        @Html.AntiForgeryToken()
+        <div>
+            <label asp-for="ProjectName" class="update-label">Project name: </label>
+            <input asp-for="ProjectName" class="update-input"/>
+            <span asp-validation-for="ProjectName"></span>
+        </div>
+        <div>
+            <label asp-for="Priority" class="update-label">Priority: </label>
+            <input asp-for="Priority" class="update-input"/>
+            <span asp-validation-for="Priority"></span>
+        </div>
+        <div>
+            <label asp-for="DateStart" class="update-label">Date start: </label>
+            <input type="date" asp-for="DateStart" class="update-input"/>
+            <span asp-validation-for="DateStart"></span>
+        </div>
+        <div>
+            <label asp-for="DateEnd" class="update-label">Date end: </label>
+            <input type="date" asp-for="DateEnd" class="update-input"/>
+            <span asp-validation-for="DateEnd"></span>
+        </div>
+
+        <div>
+            <input type="submit" value="Next"/>
+        </div>
+    </form>
+</div>

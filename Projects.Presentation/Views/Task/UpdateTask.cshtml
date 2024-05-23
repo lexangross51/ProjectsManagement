@@ -21,93 +21,97 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css"/>
 </head>
 <body>
-<form asp-controller="Task" asp-action="UpdateTask" method="post">
-    @Html.AntiForgeryToken()
-    <div>
-        <input type="hidden" asp-for="Id"/>
-    </div>
-    
-    @if (isAdmin || isDirector || isManager)
-    {
+<div class="update-container">
+    <form asp-controller="Task" asp-action="UpdateTask" method="post">
+        @Html.AntiForgeryToken()
         <div>
-            <label asp-for="TaskName">Task name: </label>
-            <input asp-for="TaskName"/>
+            <input type="hidden" asp-for="Id"/>
+        </div>
+
+        @if (isAdmin || isDirector || isManager)
+        {
+        <div>
+            <label asp-for="TaskName" class="update-label">Task name: </label>
+            <input asp-for="TaskName" class="update-input"/>
             <span asp-validation-for="TaskName"></span>
         </div>
         <div>
-            <label asp-for="Priority">Priority: </label>
-            <input asp-for="Priority"/>
+            <label asp-for="Priority" class="update-label">Priority: </label>
+            <input asp-for="Priority" class="update-input"/>
             <span asp-validation-for="Priority"></span>
         </div>
-    }
-    else
-    {
+        }
+        else
+        {
         <div>
             <input type="hidden" asp-for="TaskName"/>
             <input type="hidden" asp-for="Priority"/>
         </div>
-    }
-    
-    <div>
-        <label asp-for="Status">Status: </label>
-        <select asp-for="Status" asp-items="Html.GetEnumSelectList(typeof(TaskStatus))"></select>
-        <span asp-validation-for="Status"></span>
-    </div>
-    
-    @if (isAdmin || isDirector || isManager)
-    {
+        }
+
         <div>
-            <label asp-for="Description">Description: </label>
-            <input asp-for="Description" />
+            <label asp-for="Status" class="update-label">Status: </label>
+            <select asp-for="Status" asp-items="Html.GetEnumSelectList(typeof(TaskStatus))" style="max-width: 100%; width: 77%"
+                    ></select>
+            <span asp-validation-for="Status"></span>
+        </div>
+
+        @if (isAdmin || isDirector || isManager)
+        {
+        <div>
+            <label asp-for="Description" class="update-label">Description: </label>
+            <input asp-for="Description" class="update-input"/>
             <span asp-validation-for="Description"></span>
         </div>
         <div>
-            <label>Executor: </label>
-            <input id="executorName" value="@Model.Executor?.FullName"/>
+            <label class="update-label">Executor: </label>
+            <input id="executorName" type="text" value="@Model.Executor?.FullName" class="update-input"/>
             <input id="executorId" type="hidden" asp-for="ExecutorId"/>
             <span asp-validation-for="ExecutorId"></span>
         </div>
-    }
-    else
-    {
+        }
+        else
+        {
         <div>
             <input type="hidden" asp-for="Description" />
             <input id="executorName" type="hidden" value="@Model.Executor?.FullName"/>
             <input id="executorId" type="hidden" asp-for="ExecutorId"/>
         </div>
-    }
+        }
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#executorName').autocomplete({
-                source: function (request, response) {
-                    $.ajax({
-                        url: '/Employee/EmployeesJson',
-                        type: 'GET',
-                        data: { term: request.term, role: "Employee" },
-                        success: function (data) {
-                            response($.map(data, function (item) {
-                                return { label: item.value, value: item.id }
-                            }))
-                        }
-                    });
-                },
-                select: function (event, ui) {
-                    $('#executorName').val(ui.item.label);
-                    $('#executorId').val(ui.item.value);
-                    return false;
-                }
-            }).on('mousedown', function () {
-                $(this).autocomplete("search", " ");
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#executorName').autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: '/Employee/EmployeesJson',
+                            type: 'GET',
+                            data: { term: request.term, role: "Employee" },
+                            success: function (data) {
+                                response($.map(data, function (item) {
+                                    return { label: item.value, value: item.id }
+                                }))
+                            }
+                        });
+                    },
+                    select: function (event, ui) {
+                        $('#executorName').val(ui.item.label);
+                        $('#executorId').val(ui.item.value);
+                        return false;
+                    }
+                }).on('mousedown', function () {
+                    $(this).autocomplete("search", " ");
+                });
             });
-        });
-    </script>
-    
-    <div>
-        <input type="submit" value="Update"/>
-    </div>
-</form>
+        </script>
+
+        <div>
+            <input type="submit" value="Save"/>
+        </div>
+    </form>
+</div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 @model Projects.Presentation.Models.Projects.ProjectsViewModel
 
 @{
-    Layout = null;
+Layout = null;
 }
 
 <!DOCTYPE html>
@@ -13,16 +13,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css"/>
 </head>
 <body>
-<h3>Filters</h3>
+<h1>Filters</h1>
 
 <form id="filterForm">
     <div class="block">
         <label>Date start </label>
         <input type="date" asp-for="DateStartFilter.DateFrom"/>
         <span asp-validation-for="DateStartFilter.DateFrom"></span>
-    
+
         <label> - </label>
         <input type="date" asp-for="DateStartFilter.DateTo"/>
         <span asp-validation-for="DateStartFilter.DateTo"></span>
@@ -38,12 +39,12 @@
         <span asp-validation-for="DateEndFilter.DateTo"></span>
         <input type="hidden" asp-for="DateEndFilter.DateType" value="@DateType.End"/>
     </div>
-    
+
     <div class="block">
         <label>Priority </label>
         <input asp-for="PriorityFilter.PriorityFrom" class="form-control width50px"/>
         <span asp-validation-for="PriorityFilter.PriorityFrom"></span>
-    
+
         <label> - </label>
         <input asp-for="PriorityFilter.PriorityTo" class="form-control width50px"/>
         <span asp-validation-for="PriorityFilter.PriorityTo"></span>
@@ -51,20 +52,22 @@
 
     <input type="hidden" id="sortBy" value="" asp-for="SortBy"/>
     <input type="hidden" id="sortOrder" value="asc" asp-for="SortOrder"/>
-    
-    <div>
+
+    <div class="block">
         <button type="submit" class="base-button">Apply</button>
     </div>
 </form>
 
-<h3>Projects</h3>
+<h1>Projects</h1>
 
 <div id="projectsTable" class="block">
     @await Html.PartialAsync("_ProjectTable", Model)
 </div>
 
-<button type="button" class="base-button" onclick="location.href='@Url.Action("Index", "Home")'">Main page</button>
-<button type="button" class="base-button" onclick="location.href='@Url.Action("CreateProject", "Project")'">Add new</button>
+<div class="button-container">
+    <button type="button" class="base-button" onclick="location.href='@Url.Action("Index", "Home")'">Main page</button>
+    <button type="button" class="base-button" onclick="location.href='@Url.Action("CreateProject", "Project")'">Add new</button>
+</div>
 
 <script>
     $(document).ready(function() {
@@ -82,11 +85,11 @@
             const currentSortBy = sortBySelector.val();
             let sortOrder = sortOrderSelector.val();
 
-            if (currentSortBy === sortBy) 
+            if (currentSortBy === sortBy)
             {
                 sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
-            } 
-            else 
+            }
+            else
             {
                 sortOrder = 'asc';
             }

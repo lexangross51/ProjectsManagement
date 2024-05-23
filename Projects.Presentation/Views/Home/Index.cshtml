@@ -12,19 +12,58 @@
 
 @if (User.Identity is { IsAuthenticated: true })
 {
-    <div style="display: flex">
-        @if (isAdmin || isDirector)
-        { 
-            <button type="button" onclick="location.href='@Url.Action("Employees", "Employee")'">Employees</button>
-        }
-        
-        <button type="button" onclick="location.href='@Url.Action("Projects", "Project")'">Projects</button>
-        <button type="button" onclick="location.href='@Url.Action("Tasks", "Task")'">Tasks</button>
-    </div>
+    <div class="main-container">
+        <div class="button-column">
+            @if (isAdmin || isDirector)
+            {
+                <button type="button" onclick="location.href='@Url.Action("Employees", "Employee")'">Employees</button>
+            }
 
-    <form id="logoutForm" asp-controller="Auth" asp-action="Logout" method="post">
-        <button type="submit">Logout</button>
-    </form>
-    
-    <p>Hello, @User.Identity.Name</p>
+            <button type="button" onclick="location.href='@Url.Action("Projects", "Project")'">Projects</button>
+            <button type="button" onclick="location.href='@Url.Action("Tasks", "Task")'">Tasks</button>
+        </div>
+        
+        <div class="logout-section">
+            <p><strong>Hello</strong>, @User.Identity.Name</p>
+            
+            <form id="logoutForm" asp-controller="Auth" asp-action="Logout" method="post">
+                <input type="submit" value="Logout"/>
+            </form>
+        </div>
+    </div>
 }
+
+<style>
+    p {
+        font-size: 20px;
+    }
+    
+    .main-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .button-column {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logout-section {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    button {
+        padding: 10px 20px;
+        margin: 5px 0;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    form {
+        margin: 0 0 0 10px;
+    }
+</style>

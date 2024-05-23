@@ -9,37 +9,40 @@
 <html lang="en">
 <head>
     <title>Edit employee</title>
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css"/>
 </head>
 <body>
-<form asp-controller="Employee" asp-action="UpdateEmployee" method="post">
-    @Html.AntiForgeryToken()
-    <div>
-        <input type="hidden" asp-for="Id"/>
-    </div>
-    <div>
-        <label>First name</label>
-        <input asp-for="FirstName"/>
-        <span asp-validation-for="FirstName"></span>
-    </div>
-    <div>
-        <label>Middle name</label>
-        <input asp-for="MiddleName"/>
-        <span asp-validation-for="MiddleName"></span>
-    </div>
-    <div>
-        <label>Last name</label>
-        <input asp-for="LastName"/>
-        <span asp-validation-for="LastName"></span>
-    </div>
-    <div>
-        <label>Mail</label>
-        <input asp-for="Mail"/>
-        <span asp-validation-for="Mail"></span>
-    </div>
+<div class="update-container">
+    <form asp-controller="Employee" asp-action="UpdateEmployee" method="post">
+        @Html.AntiForgeryToken()
+        <div>
+            <input type="hidden" asp-for="Id"/>
+        </div>
+        <div>
+            <label class="update-label">First name</label>
+            <input class="update-input" asp-for="FirstName"/>
+            <span asp-validation-for="FirstName"></span>
+        </div>
+        <div>
+            <label class="update-label">Middle name</label>
+            <input class="update-input" asp-for="MiddleName"/>
+            <span asp-validation-for="MiddleName"></span>
+        </div>
+        <div>
+            <label class="update-label">Last name</label>
+            <input class="update-input" asp-for="LastName"/>
+            <span asp-validation-for="LastName"></span>
+        </div>
+        <div>
+            <label class="update-label"s>Mail</label>
+            <input class="update-input" type="email" asp-for="Mail"/>
+            <span asp-validation-for="Mail"></span>
+        </div>
 
-    <div>
-        <input type="submit" value="Update"/>
-    </div>
-</form>
+        <div>
+            <input type="submit" value="Save"/>
+        </div>
+    </form>
+</div>
 </body>
 </html>

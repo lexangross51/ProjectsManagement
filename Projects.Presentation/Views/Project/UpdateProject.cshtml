@@ -20,49 +20,51 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css"/>
 </head>
 <body>
+<div class="update-container">
     <form asp-action="UpdateProject" asp-controller="Project" method="post">
         @Html.AntiForgeryToken()
         <div>
             <input type="hidden" asp-for="Id"/>
         </div>
-        
+
         @if (isAdmin || isDirector)
         {
             <div>
-                <label asp-for="ProjectName">Project name: </label>
-                <input asp-for="ProjectName"/>
+                <label asp-for="ProjectName" class="update-label">Project name: </label>
+                <input asp-for="ProjectName" class="update-input"/>
                 <span asp-validation-for="ProjectName"></span>
             </div>
             <div>
-                <label asp-for="CompanyCustomer">Customer company: </label>
-                <input asp-for="CompanyCustomer"/>
+                <label asp-for="CompanyCustomer" class="update-label">Customer company: </label>
+                <input asp-for="CompanyCustomer" class="update-input"/>
                 <span asp-validation-for="CompanyCustomer"></span>
             </div>
             <div>
-                <label asp-for="CompanyExecutor">Executor company: </label>
-                <input asp-for="CompanyExecutor"/>
+                <label asp-for="CompanyExecutor" class="update-label">Executor company: </label>
+                <input asp-for="CompanyExecutor" class="update-input"/>
                 <span asp-validation-for="CompanyExecutor"></span>
             </div>
             <div>
-                <label asp-for="Priority">Priority: </label>
-                <input asp-for="Priority"/>
+                <label asp-for="Priority" class="update-label">Priority: </label>
+                <input asp-for="Priority" class="update-input"/>
                 <span asp-validation-for="Priority"></span>
             </div>
             <div>
-                <label asp-for="DateStart">Date start: </label>
-                <input type="date" asp-for="DateStart"/>
+                <label asp-for="DateStart" class="update-label">Date start: </label>
+                <input type="date" asp-for="DateStart" class="update-input"/>
                 <span asp-validation-for="DateStart"></span>
             </div>
             <div>
-                <label asp-for="DateEnd">Date end: </label>
-                <input type="date" asp-for="DateEnd"/>
+                <label asp-for="DateEnd" class="update-label">Date end: </label>
+                <input type="date" asp-for="DateEnd" class="update-input"/>
                 <span asp-validation-for="DateEnd"></span>
             </div>
             <div>
-                <label>Manager: </label>
-                <input type="text" id="managerName" value="@Model.Manager?.FullName"/>
+                <label class="update-label">Manager: </label>
+                <input type="text" id="managerName" value="@Model.Manager?.FullName" class="update-input"/>
                 <input type="hidden" id="managerId" asp-for="ManagerId"/>
             </div>
         }
@@ -109,16 +111,16 @@
         @if (isAdmin || isDirector || isManager)
         {
             <div>
-                <label>Executors: </label>
-                <input type="text" id="executorsNames"/>
+                <label class="update-label">Executors: </label>
+                <input type="text" id="executorsNames" class="update-input"/>
                 <input type="hidden" id="executorsId" asp-for="ExecutorsId"/>
-                <ul id="selectedExecutors">
+                <ul id="selectedExecutors" class="custom-list">
                     @if (Model.Executors != null)
                     {
                         foreach (var e in Model.Executors)
                         {
                             <li data-id="@e.Id">
-                                @e.FullName <button class="remove"> X </button>
+                                @e.FullName <button class="base-button remove-button"> X </button>
                             </li>
                         }
                     }
@@ -127,7 +129,7 @@
                 <script type="text/javascript">
                 $(document).ready(function () {
                     const selectedExecutors = $('#selectedExecutors');
-
+                    
                     $('#executorsNames').autocomplete({
                         source: function (request, response) {
                             $.ajax({
@@ -142,7 +144,7 @@
                             });
                         },
                         select: function (event, ui) {
-                            selectedExecutors.append('<li data-id="' + ui.item.value + '">' + ui.item.label + ' <button class="remove"> X </button></li>');
+                            selectedExecutors.append('<li data-id="' + ui.item.value + '">' + ui.item.label + ' <button class="base-button remove-button"> X </button></li>');
                             updateSelectedExecutorsList();
                             return false;
                         }
@@ -150,7 +152,7 @@
                         $(this).autocomplete("search", " ");
                     })
 
-                    selectedExecutors.on("click", ".remove", function () {
+                    selectedExecutors.on("click", ".remove-button", function () {
                         $(this).parent().remove();
                         updateSelectedExecutorsList();
                     })
@@ -166,10 +168,11 @@
             </script>
             </div>
         }
-        
+
         <div>
-            <input type="submit" value="Update" />
+            <input type="submit" value="Update"/>
         </div>
     </form>
+</div>
 </body>
 </html>

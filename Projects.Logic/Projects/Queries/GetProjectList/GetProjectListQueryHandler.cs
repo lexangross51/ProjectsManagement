@@ -8,30 +8,33 @@ public class GetProjectListQueryHandler(IProjectRepository repos) : IRequestHand
 {
     public async Task<ProjectListVm> Handle(GetProjectListQuery request, CancellationToken cancellationToken)
     {
-        var projects = await repos.GetAllAsync(cancellationToken);
+        IEnumerable<Project>? allProjects = await repos.GetAllAsync(cancellationToken);
         var listVm = new ProjectListVm();
 
-        if (projects == null) return listVm;
-
+        if (allProjects == null) return listVm;
+        
         if (request.Role == Roles.Manager)
         {
-            projects = projects.Where(p => p.ManagerId == request.UserId);
+            allProjects = allProjects.Where(p => p.ManagerId == request.UserId).AsEnumerable();
         }
         else if (request.Role == Roles.Employee)
         {
-            var executorsId = new List<Guid>();
+            var userProjects = new List<Project>();
 
-            foreach (var project in projects)
+            foreach (var project in allProjects)
             {
-                if (project.Executors == null || project.Executors.Count == 0) continue;
-                
-                executorsId.AddRange(project.Executors.Select(e => e.Id));
+                if (project.Executors is not { Count: > 0 }) continue;
+
+                if (project.Executors.Any(e => e.Id == request.UserId))
+                {
+                    userProjects.Add(project);
+                }
             }
-            
-            projects = projects.Where(_ => executorsId.Contains(request.UserId));
+
+            allProjects = userProjects;
         }
         
-        foreach (var project in projects)
+        foreach (var project in allProjects)
         {
             listVm.Projects.Add(new ProjectLookupDto
             {

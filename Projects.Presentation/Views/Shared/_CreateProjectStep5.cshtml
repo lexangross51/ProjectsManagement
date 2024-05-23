@@ -1,5 +1,7 @@
 ﻿@model Projects.Presentation.Models.Projects.CreateProjectStep5Dto
 
+<link rel="stylesheet" type="text/css" href="~/css/styles.css"/>
+
 <style>
     .dropzone {
         border: 2px dashed #0087F7;
@@ -13,37 +15,38 @@
     }
 </style>
 
-<form asp-action="CreateProject" asp-controller="Project" method="post" enctype="multipart/form-data">
-    @Html.AntiForgeryToken()
-    <div class="dropzone" id="dropzone">
-        Drag & Drop files here or click to upload
-    </div>
-    <input type="file" multiple id="fileUploader" name="Files" style="display:none"/>
-    <div id="fileCount">No files selected</div>
-    <script>
+<div class="box-container">
+    <form asp-action="CreateProject" asp-controller="Project" method="post" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+        <div class="dropzone" id="dropzone">
+            Drag & Drop files here or click to upload
+        </div>
+        <input type="file" multiple id="fileUploader" name="Files" style="display:none"/>
+        <div id="fileCount">No files selected</div>
+        <script>
             $(document).ready(function () {
                 let dropzone = $('#dropzone');
                 let fileUploader = $('#fileUploader');
                 let fileCount = $('#fileCount');
-    
+
                 dropzone.on('click', function () {
                     fileUploader.click();
                 });
-    
+
                 fileUploader.on('change', function () {
                     let files = fileUploader[0].files;
                     fileCount.text(files.length + ' files selected');
                 });
-    
+
                 dropzone.on('dragover', function (e) {
                     e.preventDefault();
                     dropzone.addClass('dragging');
                 });
-    
+
                 dropzone.on('dragleave', function () {
                     dropzone.removeClass('dragging');
                 });
-    
+
                 dropzone.on('drop', function (e) {
                     e.preventDefault();
                     dropzone.removeClass('dragging');
@@ -54,7 +57,8 @@
             });
         </script>
 
-    <div>
-        <input type="submit" value="Create"/>
-    </div>
-</form>
+        <div>
+            <input type="submit" value="Create"/>
+        </div>
+    </form>
+</div>

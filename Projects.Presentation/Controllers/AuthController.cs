@@ -5,12 +5,14 @@ using Projects.Presentation.Models.Auth;
 
 namespace Projects.Presentation.Controllers;
 
-public class AuthController(SignInManager<ApplicationUser> signInManager) : Controller
+public class AuthController(SignInManager<ApplicationUser> signInManager,
+    UserManager<ApplicationUser> userManager) : Controller
 {
     [HttpGet]
     public IActionResult Login() => View();
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Login(LoginDto dto)
     {
         if (!ModelState.IsValid)
@@ -20,6 +22,14 @@ public class AuthController(SignInManager<ApplicationUser> signInManager) : Cont
 
         try
         {
+            var user = await userManager.FindByNameAsync(dto.UserName);
+
+            if (user == null)
+            {
+                ModelState.AddModelError(nameof(dto.UserName), "This user does not exist");
+                return View(dto);
+            }
+            
             var result = await signInManager.PasswordSignInAsync(dto.UserName, dto.Password, false, false);
 
             if (result.Succeeded)
@@ -27,7 +37,7 @@ public class AuthController(SignInManager<ApplicationUser> signInManager) : Cont
                 return RedirectToAction("Index", "Home");
             }
 
-            ModelState.AddModelError(string.Empty, "Invalid login attempt");
+            ModelState.AddModelError(nameof(dto.Password), "Invalid password");
 
             return View(dto);
         }

@@ -17,63 +17,68 @@
 <html lang="en">
 <head>
     <title>Add new employee</title>
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css"/>
 </head>
 <body>
-<form asp-controller="Employee" asp-action="CreateEmployee" method="post">
-    @Html.AntiForgeryToken()
-    <div>
-        <label>First name</label>
-        <input asp-for="FirstName"/>
-        <span asp-validation-for="FirstName"></span>
-    </div>
-    <div>
-        <label>Middle name</label>
-        <input asp-for="MiddleName"/>
-        <span asp-validation-for="MiddleName"></span>
-    </div>
-    <div>
-        <label>Last name</label>
-        <input asp-for="LastName"/>
-        <span asp-validation-for="LastName"></span>
-    </div>
-    <div>
-        <label>Mail</label>
-        <input asp-for="Mail"/>
-        <span asp-validation-for="Mail"></span>
-    </div>
-    <div>
-        <label>Password</label>
-        <input asp-for="Password"/>
-        <span asp-validation-for="Password"></span>
-    </div>
-    <div>
-        <label>Confirm password</label>
-        <input asp-for="ConfirmPassword"/>
-        <span asp-validation-for="ConfirmPassword"></span>
-    </div>
-    
-    @if (isAdmin)
-    {
+<div class="update-container">
+    <form asp-controller="Employee" asp-action="CreateEmployee" method="post">
+        @Html.AntiForgeryToken()
         <div>
-            <label>Role</label>
-            <select asp-for="Role" asp-items="@(new SelectList(new[] { Roles.Director, Roles.Manager, Roles.Employee }))">
-            </select>
-            <span asp-validation-for="Role"></span>
+            <label class="update-label">First name</label>
+            <input asp-for="FirstName" class="update-input"/>
+            <span asp-validation-for="FirstName"></span>
         </div>
-    }
-    else if (isDirector)
-    {
         <div>
-            <label>Role</label>
-            <select asp-for="Role" asp-items="@(new SelectList(new[] { Roles.Manager, Roles.Employee }))">
-            </select>
-            <span asp-validation-for="Role"></span>
+            <label class="update-label">Middle name</label>
+            <input asp-for="MiddleName" class="update-input"/>
+            <span asp-validation-for="MiddleName"></span>
         </div>
-    }
+        <div>
+            <label class="update-label">Last name</label>
+            <input asp-for="LastName" class="update-input"/>
+            <span asp-validation-for="LastName"></span>
+        </div>
+        <div>
+            <label class="update-label">Mail</label>
+            <input asp-for="Mail" class="update-input"/>
+            <span asp-validation-for="Mail"></span>
+        </div>
+        <div>
+            <label class="update-label">Password</label>
+            <input asp-for="Password" class="update-input"/>
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div>
+            <label class="update-label">Confirm password</label>
+            <input asp-for="ConfirmPassword" class="update-input"/>
+            <span asp-validation-for="ConfirmPassword"></span>
+        </div>
 
-    <div>
-        <input type="submit" value="Add"/>
-    </div>
-</form>
+        @if (isAdmin)
+        {
+        <div>
+            <label class="update-label">Role</label>
+            <select asp-for="Role" asp-items="@(new SelectList(new[] { Roles.Director, Roles.Manager, Roles.Employee }))"
+                    style="width: 50%; max-width: 50%">
+            </select>
+            <span asp-validation-for="Role"></span>
+        </div>
+        }
+        else if (isDirector)
+        {
+        <div>
+            <label class="update-label">Role</label>
+            <select asp-for="Role" asp-items="@(new SelectList(new[] { Roles.Manager, Roles.Employee }))"
+                    style="width: 50%; max-width: 50%">
+            </select>
+            <span asp-validation-for="Role"></span>
+        </div>
+        }
+
+        <div>
+            <input type="submit" value="Add"/>
+        </div>
+    </form>
+</div>
 </body>
 </html>

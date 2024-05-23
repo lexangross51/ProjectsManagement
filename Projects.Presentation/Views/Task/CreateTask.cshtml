@@ -18,65 +18,39 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css"/>
 </head>
 <body>
-<form asp-controller="Task" asp-action="CreateTask" method="post">
-    @Html.AntiForgeryToken()
-    <div>
-        <label asp-for="TaskName">Task name: </label>
-        <input asp-for="TaskName"/>
-        <span asp-validation-for="TaskName"></span>
-    </div>
-    <div>
-        <label asp-for="Priority">Priority: </label>
-        <input asp-for="Priority"/>
-        <span asp-validation-for="Priority"></span>
-    </div>
-    <div>
-        <label asp-for="Description">Description: </label>
-        <input asp-for="Description" />
-        <span asp-validation-for="Description"></span>
-    </div>
-    <div>
-        @* <label>Author: </label> *@
-        @* <input type="text" id="authorName" /> *@
-        <input id="authorId" type="hidden" asp-for="AuthorId" value="@currentUserId"/>
-        <span asp-validation-for="AuthorId"></span>
+<div class="update-container">
+    <form asp-controller="Task" asp-action="CreateTask" method="post">
+        @Html.AntiForgeryToken()
+        <div>
+            <label asp-for="TaskName" class="update-label">Task name: </label>
+            <input asp-for="TaskName" class="update-input"/>
+            <span asp-validation-for="TaskName"></span>
+        </div>
+        <div>
+            <label asp-for="Priority" class="update-label">Priority: </label>
+            <input asp-for="Priority" class="update-input"/>
+            <span asp-validation-for="Priority"></span>
+        </div>
+        <div>
+            <label asp-for="Description" class="update-label">Description: </label>
+            <input asp-for="Description" class="update-input"/>
+            <span asp-validation-for="Description"></span>
+        </div>
+        <div>
+            <input id="authorId" type="hidden" asp-for="AuthorId" value="@currentUserId"/>
+            <span asp-validation-for="AuthorId"></span>
+        </div>
 
-            @* <script type="text/javascript"> *@
-            @*     $(document).ready(function () { *@
-            @*         $('#authorName').autocomplete({ *@
-            @*             source: function (request, response) { *@
-            @*                 $.ajax({ *@
-            @*                     url: '/Employee/EmployeesJson', *@
-            @*                     type: 'GET', *@
-            @*                     data: { term: request.term }, *@
-            @*                     success: function (data) { *@
-            @*                         response($.map(data, function (item) { *@
-            @*                             return { label: item.value, value: item.id } *@
-            @*                         })) *@
-            @*                     } *@
-            @*                 }); *@
-            @*             }, *@
-            @*             select: function (event, ui) { *@
-            @*                 $('#authorName').val(ui.item.label); *@
-            @*                 $('#authorId').val(ui.item.value); *@
-            @*                 return false; *@
-            @*             } *@
-            @*         }).on('mousedown', function () { *@
-            @*             $(this).autocomplete("search", " "); *@
-            @*         }); *@
-            @*     }); *@
-            @* </script> *@
-    </div>
-    
-    <div>
-        <label>Executor: </label>
-        <input id="executorName"/>
-        <input id="executorId" type="hidden" asp-for="ExecutorId"/>
-        <span asp-validation-for="ExecutorId"></span>
+        <div>
+            <label class="update-label">Executor: </label>
+            <input id="executorName" type="text" class="update-input"/>
+            <input id="executorId" type="hidden" asp-for="ExecutorId"/>
+            <span asp-validation-for="ExecutorId"></span>
 
-        <script type="text/javascript">
+            <script type="text/javascript">
                 $(document).ready(function () {
                     $('#executorName').autocomplete({
                         source: function (request, response) {
@@ -101,15 +75,16 @@
                     });
                 });
             </script>
-    </div>
+        </div>
 
-    <div>
-        <input type="hidden" asp-for="ProjectId" value="@Model.ProjectId"/>
-    </div>
-    
-    <div>
-        <input type="submit" value="Create"/>
-    </div>
-</form>
+        <div>
+            <input type="hidden" asp-for="ProjectId" value="@Model.ProjectId"/>
+        </div>
+
+        <div>
+            <input type="submit" value="Create"/>
+        </div>
+    </form>
+</div>
 </body>
 </html>

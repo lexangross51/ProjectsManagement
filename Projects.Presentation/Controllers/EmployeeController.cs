@@ -72,7 +72,7 @@ public class EmployeeController(IMediator mediator, ILogger<EmployeeController> 
             
             if (existingUser != null)
             {
-                ModelState.AddModelError(string.Empty, "A user with this email already exists");
+                ModelState.AddModelError(nameof(dto.Mail), "A user with this email already exists");
                 return View(dto);
             }
             
