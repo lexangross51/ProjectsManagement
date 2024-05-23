@@ -10,8 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e857d069-5a3d-41ef-a638-a8bb98906db5" name="Changes" comment="Finished tasks">
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/ProjectsManagement.db-wal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectsManagement/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projects.Presentation/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Projects.Presentation/Views/Home/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -389,14 +390,7 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Projects.Presentation/Controllers/ProjectController.cs</url>
           <line>274</line>
-          <properties documentPath="C:\Users\lexan\source\repos\ProjectsManagement\Projects.Presentation\Controllers\ProjectController.cs" containingFunctionPresentation="Method 'UpdateProject'">
-            <startOffsets>
-              <option value="9451" />
-            </startOffsets>
-            <endOffsets>
-              <option value="9452" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\lexan\source\repos\ProjectsManagement\Projects.Presentation\Controllers\ProjectController.cs" containingFunctionPresentation="Method 'UpdateProject'" />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
